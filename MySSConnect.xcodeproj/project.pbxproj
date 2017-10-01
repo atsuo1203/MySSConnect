@@ -25,6 +25,7 @@
 		C05BD3561F7D624B008361E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C05BD3541F7D624B008361E2 /* LaunchScreen.storyboard */; };
 		C05BD3611F7D624C008361E2 /* MySSConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BD3601F7D624C008361E2 /* MySSConnectTests.swift */; };
 		C05BD36C1F7D624C008361E2 /* MySSConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BD36B1F7D624C008361E2 /* MySSConnectUITests.swift */; };
+		C060CDD11F810ABA00FD1C3C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDD01F810ABA00FD1C3C /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		C05BD3671F7D624C008361E2 /* MySSConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySSConnectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05BD36B1F7D624C008361E2 /* MySSConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySSConnectUITests.swift; sourceTree = "<group>"; };
 		C05BD36D1F7D624C008361E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C060CDD01F810ABA00FD1C3C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EB9E3289B2A969C4B33D52C4 /* Pods-MySSConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnect/Pods-MySSConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +196,7 @@
 				C013EB401F7D67D3006D756B /* Model */,
 				C013EB431F7D67F1006D756B /* Edit */,
 				C05BD34B1F7D624B008361E2 /* AppDelegate.swift */,
+				C060CDD01F810ABA00FD1C3C /* API.swift */,
 				C05BD34D1F7D624B008361E2 /* ViewController.swift */,
 				C05BD34F1F7D624B008361E2 /* Main.storyboard */,
 				C05BD3521F7D624B008361E2 /* Assets.xcassets */,
@@ -528,6 +531,7 @@
 				C05BD34C1F7D624B008361E2 /* AppDelegate.swift in Sources */,
 				C013EB421F7D67EB006D756B /* Users.swift in Sources */,
 				C013EB3A1F7D6791006D756B /* TopTableViewCell.swift in Sources */,
+				C060CDD11F810ABA00FD1C3C /* API.swift in Sources */,
 				C013EB471F7D6805006D756B /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

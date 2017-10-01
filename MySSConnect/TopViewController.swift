@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 import SwiftyJSON
 
 class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -50,7 +49,7 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func getRequest(){
-        Alamofire.request("http://127.0.0.1:5000/").responseJSON { (response) in
+        API.getRequest().responseJSON { (response) in
             guard let object = response.result.value else {
                 return
             }
@@ -63,12 +62,6 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 self.users.userList.append(user)
             }
             self.topTableView.reloadData()
-        }
-    }
-    
-    func deleteRequest(id: String){
-        Alamofire.request("http://127.0.0.1:5000/" + id, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-            print(response)
         }
     }
     
@@ -103,7 +96,7 @@ extension TopViewController {
         let del = UITableViewRowAction(style: .default, title: "Delete") {
             (action, indexPath) in
             let user = self.users.userList[indexPath.row]
-            self.deleteRequest(id: user.id)
+            API.deleteRequest(userID: user.id)
             self.users.userList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

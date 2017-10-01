@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 
 class AddViewController: UIViewController {
     @IBAction func backButtonTaped(_ sender: UIButton) {
@@ -19,7 +17,7 @@ class AddViewController: UIViewController {
             return
         }
         let description = descriptionTextView.text.description
-        self.postRequest(name: name, description: description)
+        API.postRequest(name: name, description: description)
         self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var nameTextField: UITextField!
@@ -35,18 +33,8 @@ class AddViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
-    func postRequest(name: String, description: String){
-        let parameters: Parameters = [
-            "name": name,
-            "description": description
-        ]
-        Alamofire.request("http://127.0.0.1:5000/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-            print(response)
-        }
-    }
-
-
     /*
     // MARK: - Navigation
 
