@@ -26,6 +26,12 @@ class MainTabController: UITabBarController {
         tagViewController.title = "Tag"
         let navigationControllerTag = UINavigationController(rootViewController: tagViewController)
         viewControllers.append(navigationControllerTag)
+        
+        let searchStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        let searchViewController = searchStoryboard.instantiateInitialViewController()!
+        searchViewController.title = "Search"
+        let navigationControllerSearch = UINavigationController(rootViewController: searchViewController)
+        viewControllers.append(navigationControllerSearch)
 
         self.setViewControllers(viewControllers, animated: false)
         

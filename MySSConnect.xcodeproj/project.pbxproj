@@ -22,6 +22,8 @@
 		C060CDDB1F813E4F00FD1C3C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDDA1F813E4F00FD1C3C /* HomeViewController.swift */; };
 		C060CDDF1F8142C700FD1C3C /* Tag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDDE1F8142C700FD1C3C /* Tag.storyboard */; };
 		C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE01F8142D600FD1C3C /* TagViewController.swift */; };
+		C060CDE31F8143B400FD1C3C /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDE21F8143B400FD1C3C /* Search.storyboard */; };
+		C060CDE51F81441300FD1C3C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE41F81441300FD1C3C /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		C060CDDA1F813E4F00FD1C3C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C060CDDE1F8142C700FD1C3C /* Tag.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tag.storyboard; sourceTree = "<group>"; };
 		C060CDE01F8142D600FD1C3C /* TagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
+		C060CDE21F8143B400FD1C3C /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		C060CDE41F81441300FD1C3C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EB9E3289B2A969C4B33D52C4 /* Pods-MySSConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnect/Pods-MySSConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +203,8 @@
 		C060CDDC1F8141B300FD1C3C /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				C060CDE21F8143B400FD1C3C /* Search.storyboard */,
+				C060CDE41F81441300FD1C3C /* SearchViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 				C05BD3561F7D624B008361E2 /* LaunchScreen.storyboard in Resources */,
 				C05BD3531F7D624B008361E2 /* Assets.xcassets in Resources */,
 				C060CDDF1F8142C700FD1C3C /* Tag.storyboard in Resources */,
+				C060CDE31F8143B400FD1C3C /* Search.storyboard in Resources */,
 				C060CDD91F813E3900FD1C3C /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C060CDE51F81441300FD1C3C /* SearchViewController.swift in Sources */,
 				C05BD34C1F7D624B008361E2 /* AppDelegate.swift in Sources */,
 				C060CDD11F810ABA00FD1C3C /* API.swift in Sources */,
 				C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */,

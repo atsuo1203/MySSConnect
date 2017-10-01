@@ -12,7 +12,7 @@
         <!--Tag-->
         <scene sceneID="n5D-KF-nfU">
             <objects>
-                <viewController id="lrK-no-wrc" sceneMemberID="viewController">
+                <viewController id="lrK-no-wrc" customClass="TagViewController" customModule="MySSConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rc0-MU-nGW"/>
                         <viewControllerLayoutGuide type="bottom" id="Hcd-kC-B0D"/>
