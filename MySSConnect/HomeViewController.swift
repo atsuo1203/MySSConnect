@@ -1,28 +1,15 @@
 //
-//  AddViewController.swift
-//  GetPostTest
+//  HomeViewController.swift
+//  MySSConnect
 //
-//  Created by Atsuo Yonehara on 2017/09/25.
+//  Created by Atsuo Yonehara on 2017/10/02.
 //  Copyright © 2017年 Atsuo Yonehara. All rights reserved.
 //
 
 import UIKit
 
-class AddViewController: UIViewController {
-    @IBAction func backButtonTaped(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func sendButtonTaped(_ sender: UIButton) {
-        guard let name = nameTextField.text?.description else {
-            return
-        }
-        let description = descriptionTextView.text.description
-        API.postRequest(name: name, description: description)
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBOutlet weak var nameTextField: UITextField!
+class HomeViewController: UIViewController {
 
-    @IBOutlet weak var descriptionTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,8 +20,8 @@ class AddViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
+
     /*
     // MARK: - Navigation
 

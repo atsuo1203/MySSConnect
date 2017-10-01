@@ -10,20 +10,16 @@
 		35D88B7D0AD2C4283ACF9C84 /* Pods_MySSConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E032B4EFA75C5ACB4BCAFE /* Pods_MySSConnect.framework */; };
 		9EB2BFC66C72A8AB458CF63B /* Pods_MySSConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5043CF477B1EDBE109DBBCC4 /* Pods_MySSConnectTests.framework */; };
 		BD60FB666B9CC99346DBC91A /* Pods_MySSConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B796EE76E024284D96DE24 /* Pods_MySSConnectUITests.framework */; };
-		C013EB381F7D6791006D756B /* Top.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C013EB351F7D6791006D756B /* Top.storyboard */; };
-		C013EB391F7D6791006D756B /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013EB361F7D6791006D756B /* TopViewController.swift */; };
-		C013EB3A1F7D6791006D756B /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013EB371F7D6791006D756B /* TopTableViewCell.swift */; };
-		C013EB3E1F7D67C0006D756B /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C013EB3C1F7D67C0006D756B /* Add.storyboard */; };
-		C013EB3F1F7D67C0006D756B /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013EB3D1F7D67C0006D756B /* AddViewController.swift */; };
-		C013EB421F7D67EB006D756B /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013EB411F7D67EB006D756B /* Users.swift */; };
-		C013EB461F7D6805006D756B /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C013EB441F7D6805006D756B /* Edit.storyboard */; };
-		C013EB471F7D6805006D756B /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C013EB451F7D6805006D756B /* EditViewController.swift */; };
 		C05BD34C1F7D624B008361E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BD34B1F7D624B008361E2 /* AppDelegate.swift */; };
 		C05BD3531F7D624B008361E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C05BD3521F7D624B008361E2 /* Assets.xcassets */; };
 		C05BD3561F7D624B008361E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C05BD3541F7D624B008361E2 /* LaunchScreen.storyboard */; };
 		C05BD3611F7D624C008361E2 /* MySSConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BD3601F7D624C008361E2 /* MySSConnectTests.swift */; };
 		C05BD36C1F7D624C008361E2 /* MySSConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BD36B1F7D624C008361E2 /* MySSConnectUITests.swift */; };
 		C060CDD11F810ABA00FD1C3C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDD01F810ABA00FD1C3C /* API.swift */; };
+		C060CDD31F813D1500FD1C3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDD21F813D1500FD1C3C /* Main.storyboard */; };
+		C060CDD51F813D9300FD1C3C /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDD41F813D9300FD1C3C /* MainTabController.swift */; };
+		C060CDD91F813E3900FD1C3C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDD81F813E3900FD1C3C /* Home.storyboard */; };
+		C060CDDB1F813E4F00FD1C3C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDDA1F813E4F00FD1C3C /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,14 +48,6 @@
 		7CD911DCE41668312F42C0E5 /* Pods-MySSConnectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnectTests/Pods-MySSConnectTests.release.xcconfig"; sourceTree = "<group>"; };
 		9A0108B6D961B5A24649B035 /* Pods-MySSConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnect/Pods-MySSConnect.release.xcconfig"; sourceTree = "<group>"; };
 		A6E93220B82E041ABF24B7DE /* Pods-MySSConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnectTests/Pods-MySSConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C013EB351F7D6791006D756B /* Top.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Top.storyboard; sourceTree = "<group>"; };
-		C013EB361F7D6791006D756B /* TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
-		C013EB371F7D6791006D756B /* TopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
-		C013EB3C1F7D67C0006D756B /* Add.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Add.storyboard; sourceTree = "<group>"; };
-		C013EB3D1F7D67C0006D756B /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		C013EB411F7D67EB006D756B /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
-		C013EB441F7D6805006D756B /* Edit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Edit.storyboard; sourceTree = "<group>"; };
-		C013EB451F7D6805006D756B /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		C05BD3481F7D624B008361E2 /* MySSConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySSConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05BD34B1F7D624B008361E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C05BD3521F7D624B008361E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,6 +60,10 @@
 		C05BD36B1F7D624C008361E2 /* MySSConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySSConnectUITests.swift; sourceTree = "<group>"; };
 		C05BD36D1F7D624C008361E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C060CDD01F810ABA00FD1C3C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		C060CDD21F813D1500FD1C3C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C060CDD41F813D9300FD1C3C /* MainTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		C060CDD81F813E3900FD1C3C /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		C060CDDA1F813E4F00FD1C3C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EB9E3289B2A969C4B33D52C4 /* Pods-MySSConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnect/Pods-MySSConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,42 +118,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C013EB341F7D6766006D756B /* Top */ = {
-			isa = PBXGroup;
-			children = (
-				C013EB351F7D6791006D756B /* Top.storyboard */,
-				C013EB361F7D6791006D756B /* TopViewController.swift */,
-				C013EB371F7D6791006D756B /* TopTableViewCell.swift */,
-			);
-			name = Top;
-			sourceTree = "<group>";
-		};
-		C013EB3B1F7D67A8006D756B /* Add */ = {
-			isa = PBXGroup;
-			children = (
-				C013EB3C1F7D67C0006D756B /* Add.storyboard */,
-				C013EB3D1F7D67C0006D756B /* AddViewController.swift */,
-			);
-			name = Add;
-			sourceTree = "<group>";
-		};
-		C013EB401F7D67D3006D756B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C013EB411F7D67EB006D756B /* Users.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		C013EB431F7D67F1006D756B /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-				C013EB441F7D6805006D756B /* Edit.storyboard */,
-				C013EB451F7D6805006D756B /* EditViewController.swift */,
-			);
-			name = Edit;
-			sourceTree = "<group>";
-		};
 		C05BD33F1F7D624B008361E2 = {
 			isa = PBXGroup;
 			children = (
@@ -187,10 +143,10 @@
 		C05BD34A1F7D624B008361E2 /* MySSConnect */ = {
 			isa = PBXGroup;
 			children = (
-				C013EB341F7D6766006D756B /* Top */,
-				C013EB3B1F7D67A8006D756B /* Add */,
-				C013EB401F7D67D3006D756B /* Model */,
-				C013EB431F7D67F1006D756B /* Edit */,
+				C060CDD61F813DED00FD1C3C /* Main */,
+				C060CDD71F813E1600FD1C3C /* Home */,
+				C060CDDD1F8141CB00FD1C3C /* Tag */,
+				C060CDDC1F8141B300FD1C3C /* Search */,
 				C05BD34B1F7D624B008361E2 /* AppDelegate.swift */,
 				C060CDD01F810ABA00FD1C3C /* API.swift */,
 				C05BD3521F7D624B008361E2 /* Assets.xcassets */,
@@ -216,6 +172,38 @@
 				C05BD36D1F7D624C008361E2 /* Info.plist */,
 			);
 			path = MySSConnectUITests;
+			sourceTree = "<group>";
+		};
+		C060CDD61F813DED00FD1C3C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C060CDD21F813D1500FD1C3C /* Main.storyboard */,
+				C060CDD41F813D9300FD1C3C /* MainTabController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		C060CDD71F813E1600FD1C3C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C060CDD81F813E3900FD1C3C /* Home.storyboard */,
+				C060CDDA1F813E4F00FD1C3C /* HomeViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		C060CDDC1F8141B300FD1C3C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		C060CDDD1F8141CB00FD1C3C /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tag;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,11 +325,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C013EB381F7D6791006D756B /* Top.storyboard in Resources */,
+				C060CDD31F813D1500FD1C3C /* Main.storyboard in Resources */,
 				C05BD3561F7D624B008361E2 /* LaunchScreen.storyboard in Resources */,
-				C013EB3E1F7D67C0006D756B /* Add.storyboard in Resources */,
 				C05BD3531F7D624B008361E2 /* Assets.xcassets in Resources */,
-				C013EB461F7D6805006D756B /* Edit.storyboard in Resources */,
+				C060CDD91F813E3900FD1C3C /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,13 +505,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C013EB3F1F7D67C0006D756B /* AddViewController.swift in Sources */,
-				C013EB391F7D6791006D756B /* TopViewController.swift in Sources */,
 				C05BD34C1F7D624B008361E2 /* AppDelegate.swift in Sources */,
-				C013EB421F7D67EB006D756B /* Users.swift in Sources */,
-				C013EB3A1F7D6791006D756B /* TopTableViewCell.swift in Sources */,
 				C060CDD11F810ABA00FD1C3C /* API.swift in Sources */,
-				C013EB471F7D6805006D756B /* EditViewController.swift in Sources */,
+				C060CDD51F813D9300FD1C3C /* MainTabController.swift in Sources */,
+				C060CDDB1F813E4F00FD1C3C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
