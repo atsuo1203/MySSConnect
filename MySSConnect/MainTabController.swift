@@ -21,6 +21,11 @@ class MainTabController: UITabBarController {
         let navigationControllerHome = UINavigationController(rootViewController: homeViewController)
         viewControllers.append(navigationControllerHome)
         
+        let tagStoryboard = UIStoryboard(name: "Tag", bundle: nil)
+        let tagViewController = tagStoryboard.instantiateInitialViewController()!
+        tagViewController.title = "Tag"
+        let navigationControllerTag = UINavigationController(rootViewController: tagViewController)
+        viewControllers.append(navigationControllerTag)
 
         self.setViewControllers(viewControllers, animated: false)
         
