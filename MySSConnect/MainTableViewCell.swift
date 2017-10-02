@@ -1,16 +1,17 @@
 //
-//  TopTableViewCell.swift
-//  GetPostTest
+//  MainTableViewCell.swift
+//  MySSConnect
 //
-//  Created by Atsuo Yonehara on 2017/09/25.
+//  Created by Atsuo Yonehara on 2017/10/02.
 //  Copyright © 2017年 Atsuo Yonehara. All rights reserved.
 //
 
 import UIKit
 
-class TopTableViewCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+class MainTableViewCell: UITableViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var blogPickerView: UIPickerView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
