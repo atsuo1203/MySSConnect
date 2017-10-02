@@ -24,6 +24,8 @@
 		C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE01F8142D600FD1C3C /* TagViewController.swift */; };
 		C060CDE31F8143B400FD1C3C /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDE21F8143B400FD1C3C /* Search.storyboard */; };
 		C060CDE51F81441300FD1C3C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE41F81441300FD1C3C /* SearchViewController.swift */; };
+		C060CDE81F82083400FD1C3C /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDE71F82083400FD1C3C /* Result.storyboard */; };
+		C060CDEA1F82084200FD1C3C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE91F82084200FD1C3C /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		C060CDE01F8142D600FD1C3C /* TagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		C060CDE21F8143B400FD1C3C /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		C060CDE41F81441300FD1C3C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C060CDE71F82083400FD1C3C /* Result.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
+		C060CDE91F82084200FD1C3C /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		EB9E3289B2A969C4B33D52C4 /* Pods-MySSConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnect/Pods-MySSConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +159,7 @@
 				C060CDD71F813E1600FD1C3C /* Home */,
 				C060CDDD1F8141CB00FD1C3C /* Tag */,
 				C060CDDC1F8141B300FD1C3C /* Search */,
+				C060CDE61F82081E00FD1C3C /* Result */,
 				C05BD34B1F7D624B008361E2 /* AppDelegate.swift */,
 				C060CDD01F810ABA00FD1C3C /* API.swift */,
 				C05BD3521F7D624B008361E2 /* Assets.xcassets */,
@@ -216,6 +221,15 @@
 				C060CDE01F8142D600FD1C3C /* TagViewController.swift */,
 			);
 			name = Tag;
+			sourceTree = "<group>";
+		};
+		C060CDE61F82081E00FD1C3C /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				C060CDE71F82083400FD1C3C /* Result.storyboard */,
+				C060CDE91F82084200FD1C3C /* ResultViewController.swift */,
+			);
+			name = Result;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C060CDE81F82083400FD1C3C /* Result.storyboard in Resources */,
 				C060CDD31F813D1500FD1C3C /* Main.storyboard in Resources */,
 				C05BD3561F7D624B008361E2 /* LaunchScreen.storyboard in Resources */,
 				C05BD3531F7D624B008361E2 /* Assets.xcassets in Resources */,
@@ -521,6 +536,7 @@
 			files = (
 				C060CDE51F81441300FD1C3C /* SearchViewController.swift in Sources */,
 				C05BD34C1F7D624B008361E2 /* AppDelegate.swift in Sources */,
+				C060CDEA1F82084200FD1C3C /* ResultViewController.swift in Sources */,
 				C060CDD11F810ABA00FD1C3C /* API.swift in Sources */,
 				C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */,
 				C060CDD51F813D9300FD1C3C /* MainTabController.swift in Sources */,
