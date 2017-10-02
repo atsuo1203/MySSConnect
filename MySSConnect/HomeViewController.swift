@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.mainTableView.dataSource = self
         
         self.mainTableView.register(UINib(nibName: "MainCell", bundle: nil), forCellReuseIdentifier: "MainCell")
+        self.mainTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,9 +34,15 @@ extension HomeViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath)
-        cell.textLabel?.text = "あかり「ゆるゆり最高」"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
+        cell.titleLabel?.text = "あかり「ゆるゆり最高」"
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Result", bundle: nil)
+        guard let nextVC = storyboard.instantiateInitialViewController() else {return}
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
