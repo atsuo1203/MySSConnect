@@ -31,6 +31,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="ic_home" id="3SO-cH-AmZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mainTableView" destination="1l6-ja-wWA" id="tPc-Ub-Dak"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wd6-bK-KPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
