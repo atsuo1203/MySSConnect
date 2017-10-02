@@ -9,16 +9,15 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    @IBAction func buttonTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Result", bundle: nil)
-        guard let nextVC = storyboard.instantiateInitialViewController() else {return}
-        self.navigationController?.pushViewController(nextVC, animated: true)
-    }
+    @IBOutlet weak var searchImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        searchImageView.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.search))
+        searchImageView.addGestureRecognizer(gesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +25,11 @@ class SearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func search() {
+        let storyboard = UIStoryboard(name: "Result", bundle: nil)
+        guard let nextVC = storyboard.instantiateInitialViewController() else {return}
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 
     /*
     // MARK: - Navigation
