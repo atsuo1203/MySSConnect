@@ -7,10 +7,18 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class Article: NSObject {
-    var id = ""
-    var url = ""
-    var posted_at = ""
-    var blogs = Blog()
+    var id: String?
+    var url: String?
+    var posted_at: String?
+    var blog: Blog?
+    
+    init(json: JSON) {
+        self.id = json["id"].description
+        self.url = json["url"].description
+        self.posted_at = json["posted_at"].description
+        self.blog = Blog(json: json)
+    }
 }

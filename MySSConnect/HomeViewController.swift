@@ -8,11 +8,13 @@
 
 import UIKit
 import SafariServices
+import SwiftyJSON
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var mainTableView: UITableView!
+    var stories = [Story]()
+    let list = ["a","b","c"]
     
-    var list = ["ssまとめ","エレファント速報"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,11 +23,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.mainTableView.register(UINib(nibName: "MainCell", bundle: nil), forCellReuseIdentifier: "MainCell")
         self.mainTableView.estimatedRowHeight = 90
         self.mainTableView.rowHeight = UITableViewAutomaticDimension
-        
+        getRequest()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func getRequest(){
+        self.stories.removeAll()
+        self.mainTableView.reloadData()
+        
+        API.getRequest().responseJSON { (response) in
+            guard let object = response.result.value else {
+                return
+            }
+            let json = JSON(object)
+            json.forEach { (_, json) in
+                let story = Story(json: json)
+                self.stories.append(story)
+            }
+            self.mainTableView.reloadData()
+        }
     }
     
     func showWebView(targetURL: String) {
@@ -33,29 +52,36 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let webView = SFSafariViewController(url: url)
         present(webView, animated: true, completion: nil)
     }
+
 }
 
 
 extension HomeViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return stories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
         cell.selectionStyle = .none
-        cell.titleLabel?.text = "あかり「ゆるゆり最高」"
+        cell.titleLabel?.text = stories[indexPath.row].title
         cell.blogPickerView.dataSource = self
         cell.blogPickerView.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //押されたcellを取得
         let cell = tableView.cellForRow(at: indexPath) as! MainTableViewCell
+        //何番目が押されたかを取得
+        guard let row = self.mainTableView.indexPath(for: cell)?.row else {
+            return
+        }
+        //押されたcellのpickerViewの選択されていた番号を取得
         let selectedIndex = cell.blogPickerView.selectedRow(inComponent: 0)
-        print(cell.titleLabel.text!)
-        print(list[selectedIndex])
+        
+        print(row.description + "番目が押されて" + list[selectedIndex] + "が選択された")
         showWebView(targetURL: "https://www.google.co.jp/")
     }
 }
@@ -78,7 +104,7 @@ extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate{
         let label = UILabel()
         label.textAlignment = .center
         label.text = list[row]
-        label.font = UIFont(name: list[row],size:5)
+        label.font = UIFont(name: "b",size:5)
         return label
     }
 }

@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class API {
     
-    static let baseURL = "http://127.0.0.1:5000/"
+    static let baseURL = "https://ssconnect.elzup.com/v1/stories"
     
     static func getRequest() -> DataRequest {
         let response = Alamofire.request(baseURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
