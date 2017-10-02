@@ -46,8 +46,8 @@ extension HomeViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
         cell.selectionStyle = .none
         cell.titleLabel?.text = "あかり「ゆるゆり最高」"
-        cell.blogPickerView.dataSource = self//これと
-        cell.blogPickerView.delegate = self//これ
+        cell.blogPickerView.dataSource = self
+        cell.blogPickerView.delegate = self
         return cell
     }
     

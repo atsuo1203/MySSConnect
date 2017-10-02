@@ -28,6 +28,9 @@
 		C060CDEA1F82084200FD1C3C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE91F82084200FD1C3C /* ResultViewController.swift */; };
 		C060CDEE1F821C0C00FD1C3C /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C060CDED1F821C0C00FD1C3C /* MainCell.xib */; };
 		C060CDF01F821E4600FD1C3C /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDEF1F821E4600FD1C3C /* MainTableViewCell.swift */; };
+		C060CDF31F828AA500FD1C3C /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDF21F828AA500FD1C3C /* Story.swift */; };
+		C060CDF51F828B7500FD1C3C /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDF41F828B7500FD1C3C /* Article.swift */; };
+		C060CDF71F828B8000FD1C3C /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDF61F828B8000FD1C3C /* Blog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		C060CDE91F82084200FD1C3C /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		C060CDED1F821C0C00FD1C3C /* MainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
 		C060CDEF1F821E4600FD1C3C /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		C060CDF21F828AA500FD1C3C /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		C060CDF41F828B7500FD1C3C /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		C060CDF61F828B8000FD1C3C /* Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
 		EB9E3289B2A969C4B33D52C4 /* Pods-MySSConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnect/Pods-MySSConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,9 +171,9 @@
 				C060CDDC1F8141B300FD1C3C /* Search */,
 				C060CDE61F82081E00FD1C3C /* Result */,
 				C060CDEC1F821BCE00FD1C3C /* Common */,
-				C05BD34B1F7D624B008361E2 /* AppDelegate.swift */,
-				C060CDD01F810ABA00FD1C3C /* API.swift */,
+				C060CDF11F828A6100FD1C3C /* Model */,
 				C05BD3521F7D624B008361E2 /* Assets.xcassets */,
+				C05BD34B1F7D624B008361E2 /* AppDelegate.swift */,
 				C05BD3541F7D624B008361E2 /* LaunchScreen.storyboard */,
 				C05BD3571F7D624B008361E2 /* Info.plist */,
 			);
@@ -242,8 +248,19 @@
 			children = (
 				C060CDED1F821C0C00FD1C3C /* MainCell.xib */,
 				C060CDEF1F821E4600FD1C3C /* MainTableViewCell.swift */,
+				C060CDD01F810ABA00FD1C3C /* API.swift */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		C060CDF11F828A6100FD1C3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C060CDF21F828AA500FD1C3C /* Story.swift */,
+				C060CDF41F828B7500FD1C3C /* Article.swift */,
+				C060CDF61F828B8000FD1C3C /* Blog.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -553,10 +570,13 @@
 				C05BD34C1F7D624B008361E2 /* AppDelegate.swift in Sources */,
 				C060CDF01F821E4600FD1C3C /* MainTableViewCell.swift in Sources */,
 				C060CDEA1F82084200FD1C3C /* ResultViewController.swift in Sources */,
+				C060CDF51F828B7500FD1C3C /* Article.swift in Sources */,
 				C060CDD11F810ABA00FD1C3C /* API.swift in Sources */,
 				C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */,
 				C060CDD51F813D9300FD1C3C /* MainTabController.swift in Sources */,
 				C060CDDB1F813E4F00FD1C3C /* HomeViewController.swift in Sources */,
+				C060CDF71F828B8000FD1C3C /* Blog.swift in Sources */,
+				C060CDF31F828AA500FD1C3C /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
