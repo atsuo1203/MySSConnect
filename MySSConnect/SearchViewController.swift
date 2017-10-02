@@ -9,6 +9,11 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Result", bundle: nil)
+        guard let nextVC = storyboard.instantiateInitialViewController() else {return}
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
