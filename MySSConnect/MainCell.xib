@@ -25,33 +25,33 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017/12/03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gn4-Eg-y9b">
-                        <rect key="frame" x="8" y="71" width="86" height="16"/>
+                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Erk-1k-pZI">
+                        <rect key="frame" x="-2" y="64" width="145" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="9js-U3-YeN"/>
-                            <constraint firstAttribute="width" constant="86" id="UYL-OT-bzO"/>
+                            <constraint firstAttribute="height" constant="40" id="phv-jX-Aa7"/>
+                        </constraints>
+                    </pickerView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017/12/03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gn4-Eg-y9b">
+                        <rect key="frame" x="281" y="71" width="86" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="86" id="D6v-pi-D85"/>
+                            <constraint firstAttribute="height" constant="16" id="y4w-Lv-quO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Erk-1k-pZI">
-                        <rect key="frame" x="102" y="57.5" width="265" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="5Jh-Xq-QYV"/>
-                        </constraints>
-                    </pickerView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="fGn-jX-a9U" firstAttribute="leading" secondItem="b8K-n0-tDe" secondAttribute="leadingMargin" id="8lI-00-ABm"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Erk-1k-pZI" secondAttribute="bottom" constant="-10" id="DhT-Mm-I7B"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="gn4-Eg-y9b" secondAttribute="bottom" constant="0.5" id="HjP-Ma-hC6"/>
-                    <constraint firstItem="fGn-jX-a9U" firstAttribute="trailing" secondItem="b8K-n0-tDe" secondAttribute="trailingMargin" id="KYK-54-IW5"/>
-                    <constraint firstItem="Erk-1k-pZI" firstAttribute="top" secondItem="fGn-jX-a9U" secondAttribute="bottom" constant="8" id="Pgr-24-mEK"/>
-                    <constraint firstItem="gn4-Eg-y9b" firstAttribute="leading" secondItem="b8K-n0-tDe" secondAttribute="leadingMargin" id="cuG-H2-8W1"/>
-                    <constraint firstItem="fGn-jX-a9U" firstAttribute="top" secondItem="b8K-n0-tDe" secondAttribute="topMargin" id="duY-sS-ADJ"/>
-                    <constraint firstItem="Erk-1k-pZI" firstAttribute="trailing" secondItem="b8K-n0-tDe" secondAttribute="trailingMargin" id="fGY-3D-QVO"/>
-                    <constraint firstItem="Erk-1k-pZI" firstAttribute="leading" secondItem="gn4-Eg-y9b" secondAttribute="trailing" constant="8" id="pAZ-Tn-ZGO"/>
+                    <constraint firstItem="Erk-1k-pZI" firstAttribute="leading" secondItem="b8K-n0-tDe" secondAttribute="leading" constant="-2" id="75v-aL-EAC"/>
+                    <constraint firstItem="fGn-jX-a9U" firstAttribute="leading" secondItem="b8K-n0-tDe" secondAttribute="leadingMargin" id="8Dx-h1-mJO"/>
+                    <constraint firstItem="gn4-Eg-y9b" firstAttribute="trailing" secondItem="b8K-n0-tDe" secondAttribute="trailingMargin" id="XjK-mT-dk8"/>
+                    <constraint firstItem="gn4-Eg-y9b" firstAttribute="leading" secondItem="Erk-1k-pZI" secondAttribute="trailing" constant="138" id="aXZ-MV-a9F"/>
+                    <constraint firstItem="fGn-jX-a9U" firstAttribute="trailing" secondItem="b8K-n0-tDe" secondAttribute="trailingMargin" id="fAh-kc-34h"/>
+                    <constraint firstItem="Erk-1k-pZI" firstAttribute="top" secondItem="fGn-jX-a9U" secondAttribute="bottom" constant="14.5" id="hao-ag-OHR"/>
+                    <constraint firstItem="fGn-jX-a9U" firstAttribute="top" secondItem="b8K-n0-tDe" secondAttribute="topMargin" id="thg-P5-0dg"/>
+                    <constraint firstAttribute="bottom" secondItem="Erk-1k-pZI" secondAttribute="bottom" constant="-8.5" id="uCn-Kd-XIV"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="gn4-Eg-y9b" secondAttribute="bottom" constant="0.5" id="x7U-Qp-Spb"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
