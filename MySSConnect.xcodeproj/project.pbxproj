@@ -26,6 +26,8 @@
 		C060CDE51F81441300FD1C3C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE41F81441300FD1C3C /* SearchViewController.swift */; };
 		C060CDE81F82083400FD1C3C /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDE71F82083400FD1C3C /* Result.storyboard */; };
 		C060CDEA1F82084200FD1C3C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE91F82084200FD1C3C /* ResultViewController.swift */; };
+		C060CDEE1F821C0C00FD1C3C /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C060CDED1F821C0C00FD1C3C /* MainCell.xib */; };
+		C060CDF01F821E4600FD1C3C /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDEF1F821E4600FD1C3C /* MainTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		C060CDE41F81441300FD1C3C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C060CDE71F82083400FD1C3C /* Result.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
 		C060CDE91F82084200FD1C3C /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		C060CDED1F821C0C00FD1C3C /* MainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
+		C060CDEF1F821E4600FD1C3C /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		EB9E3289B2A969C4B33D52C4 /* Pods-MySSConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnect/Pods-MySSConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +164,7 @@
 				C060CDDD1F8141CB00FD1C3C /* Tag */,
 				C060CDDC1F8141B300FD1C3C /* Search */,
 				C060CDE61F82081E00FD1C3C /* Result */,
+				C060CDEC1F821BCE00FD1C3C /* Common */,
 				C05BD34B1F7D624B008361E2 /* AppDelegate.swift */,
 				C060CDD01F810ABA00FD1C3C /* API.swift */,
 				C05BD3521F7D624B008361E2 /* Assets.xcassets */,
@@ -230,6 +235,15 @@
 				C060CDE91F82084200FD1C3C /* ResultViewController.swift */,
 			);
 			name = Result;
+			sourceTree = "<group>";
+		};
+		C060CDEC1F821BCE00FD1C3C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C060CDED1F821C0C00FD1C3C /* MainCell.xib */,
+				C060CDEF1F821E4600FD1C3C /* MainTableViewCell.swift */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +367,7 @@
 			files = (
 				C060CDE81F82083400FD1C3C /* Result.storyboard in Resources */,
 				C060CDD31F813D1500FD1C3C /* Main.storyboard in Resources */,
+				C060CDEE1F821C0C00FD1C3C /* MainCell.xib in Resources */,
 				C05BD3561F7D624B008361E2 /* LaunchScreen.storyboard in Resources */,
 				C05BD3531F7D624B008361E2 /* Assets.xcassets in Resources */,
 				C060CDDF1F8142C700FD1C3C /* Tag.storyboard in Resources */,
@@ -536,6 +551,7 @@
 			files = (
 				C060CDE51F81441300FD1C3C /* SearchViewController.swift in Sources */,
 				C05BD34C1F7D624B008361E2 /* AppDelegate.swift in Sources */,
+				C060CDF01F821E4600FD1C3C /* MainTableViewCell.swift in Sources */,
 				C060CDEA1F82084200FD1C3C /* ResultViewController.swift in Sources */,
 				C060CDD11F810ABA00FD1C3C /* API.swift in Sources */,
 				C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */,
