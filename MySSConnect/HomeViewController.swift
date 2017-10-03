@@ -35,6 +35,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.mainTableView.reloadData()
         
         API.getRequest().responseJSON { (response) in
+//            print(response.response?.allHeaderFields)
             guard let object = response.result.value else {
                 return
             }
@@ -43,6 +44,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let story = Story(json: json)
                 self.stories.append(story)
             }
+            print(self.stories[0].articles[0].blog.id)
             self.mainTableView.reloadData()
         }
     }

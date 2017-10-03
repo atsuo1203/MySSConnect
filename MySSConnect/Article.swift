@@ -19,6 +19,6 @@ class Article: NSObject {
         self.id = json["id"].intValue
         self.url = json["url"].description
         self.posted_at = json["posted_at"].description
-        self.blog = Blog(json: json)
+        self.blog = Blog(json: json["blog"])
     }
 }

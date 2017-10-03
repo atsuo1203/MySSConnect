@@ -21,11 +21,6 @@ class Story: NSObject {
         self.title = json["title"].description
         self.first_posted_at = json["first_posted_at"].description
         self.tag_list = json["tag_list"].arrayValue.map { $0.stringValue }
-        var list = [Article]()
-        json.forEach { (string, json) in
-            let article = Article(json: json)
-            list.append(article)
-        }
-        self.articles = list
+        self.articles = json["articles"].arrayValue.map { Article(json: $0) }
     }
 }
