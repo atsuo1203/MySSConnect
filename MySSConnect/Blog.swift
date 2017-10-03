@@ -10,11 +10,11 @@ import UIKit
 import SwiftyJSON
 
 class Blog: NSObject {
-    var id = 0
-    var title = ""
-    var rss = ""
-    var created_at = ""
-    var updated_at = ""
+    var id: Int
+    var title: String
+    var rss: String
+    var created_at: String
+    var updated_at: String
     
     init(json: JSON) {
         self.id = json["id"].intValue
