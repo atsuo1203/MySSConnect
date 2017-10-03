@@ -13,7 +13,7 @@ import SwiftyJSON
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var mainTableView: UITableView!
     var stories = [Story]()
-    let list = ["a","b","c"]
+    let list = ["エレファント速報","b","c"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +82,8 @@ extension HomeViewController {
         let selectedIndex = cell.blogPickerView.selectedRow(inComponent: 0)
         
         print(row.description + "番目が押されて" + list[selectedIndex] + "が選択された")
-        showWebView(targetURL: "https://www.google.co.jp/")
+        print(stories[row].tag_list)
+//        showWebView(targetURL: (stories[row].articles?[0].url?.description)!)
     }
 }
 

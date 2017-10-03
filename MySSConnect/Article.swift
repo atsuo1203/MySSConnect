@@ -10,9 +10,9 @@ import UIKit
 import SwiftyJSON
 
 class Article: NSObject {
-    var id: String?
-    var url: String?
-    var posted_at: String?
+    var id = ""
+    var url = ""
+    var posted_at = ""
     var blog: Blog?
     
     init(json: JSON) {
