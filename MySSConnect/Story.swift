@@ -10,19 +10,18 @@ import UIKit
 import SwiftyJSON
 
 class Story: NSObject {
-    var id = ""
+    var id = 0
     var title = ""
     var first_posted_at = ""
     var tag_list = [String]()
     var articles = [Article]()
     
     init(json: JSON) {
-        self.id = json["id"].description
+        self.id = json["id"].intValue
         self.title = json["title"].description
         self.first_posted_at = json["first_posted_at"].description
-        print(json["tag_list"].count)
-        for i in 0..<json["tag_list"].count {
-            self.tag_list.append(json["tag_list"][i].description)
+        for tag in json["tag_list"].arrayValue {
+            self.tag_list.append(tag.stringValue)
         }
         var list = [Article]()
         json.forEach { (string, json) in
