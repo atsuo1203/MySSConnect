@@ -20,6 +20,13 @@ class API {
         return response
     }
     
+    static func getRequest(tag: String, q: String, page: String) -> DataRequest {
+        let url = baseURL+"tag="+tag+"q="+q+"page="+page
+        let response = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+        print(response)
+        return response
+    }
+    
     static func postRequest(name: String, description: String){
         let parameters: Parameters = [
             "name": name,
