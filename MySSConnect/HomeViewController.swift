@@ -83,8 +83,7 @@ extension HomeViewController {
         let selectedIndex = cell.blogPickerView.selectedRow(inComponent: 0)
         
         print(row.description + "番目が押されて" + list[selectedIndex] + "が選択された")
-        print(stories[row].tag_list)
-//        showWebView(targetURL: (stories[row].articles?[0].url?.description)!)
+        showWebView(targetURL: stories[row].articles[0].url)
     }
 }
 
