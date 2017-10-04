@@ -14,6 +14,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var mainTableView: UITableView!
     var stories = [Story]()
     let list = ["エレファント速報","b","c"]
+    var page = "1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +32,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func getRequest(){
-        self.stories.removeAll()
         self.mainTableView.reloadData()
         
-        API.getRequest().responseJSON { (response) in
+        API.getRequest(tag: "", q: "", page: page).responseJSON { (response) in
 //            print(response.response?.allHeaderFields)
             guard let object = response.result.value else {
                 return
@@ -44,7 +44,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let story = Story(json: json)
                 self.stories.append(story)
             }
-            print(self.stories[0].articles[0].blog.id)
             self.mainTableView.reloadData()
         }
     }
