@@ -13,12 +13,18 @@ class TagViewController: UIViewController {
     @IBOutlet weak var tagSearchBar: UISearchBar!
     @IBOutlet weak var mainTableView: UITableView!
     var tags = [Tag]()
+    var searchResult = [Tag]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //tableView
         self.mainTableView.delegate = self
         self.mainTableView.dataSource = self
         self.mainTableView.register(UINib(nibName: "TagCell", bundle: nil), forCellReuseIdentifier: "TagCell")
+        //searchBar
+        self.tagSearchBar.delegate = self
+        self.tagSearchBar.enablesReturnKeyAutomatically = false
+        //tag取得
         getTags()
     }
 
@@ -38,6 +44,7 @@ class TagViewController: UIViewController {
                     self.tags.append(tag)
                 }
             }
+            self.searchResult = self.tags
             self.mainTableView.reloadData()
         }
     }
@@ -45,17 +52,36 @@ class TagViewController: UIViewController {
 
 extension TagViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tags.count
+        return searchResult.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath) as! TagTableViewCell
         cell.selectionStyle = .none
-        cell.nameLabel.text = tags[indexPath.row].name
-        cell.countLabel.text = "(" + tags[indexPath.row].taggings_count.description + ")"
+        cell.nameLabel.text = searchResult[indexPath.row].name
+        cell.countLabel.text = "(" + searchResult[indexPath.row].taggings_count.description + ")"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+}
+
+extension TagViewController: UISearchBarDelegate {
+    //searchBarで検索した時の処理
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        tagSearchBar.endEditing(true)
+        searchResult.removeAll()
+        
+        if(tagSearchBar.text == "") {
+            searchResult = tags
+        } else {
+            for tag in tags {
+                if tag.name.contains(tagSearchBar.text!) {
+                    searchResult.append(tag)
+                }
+            }
+        }
+        self.mainTableView.reloadData()
     }
 }
