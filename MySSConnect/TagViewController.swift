@@ -18,6 +18,8 @@ class TagViewController: UIViewController {
         super.viewDidLoad()
         self.mainTableView.delegate = self
         self.mainTableView.dataSource = self
+        self.mainTableView.register(UINib(nibName: "TagCell", bundle: nil), forCellReuseIdentifier: "TagCell")
+        getTags()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +38,7 @@ class TagViewController: UIViewController {
                     self.tags.append(tag)
                 }
             }
+            self.mainTableView.reloadData()
         }
     }
 }
@@ -46,7 +49,10 @@ extension TagViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath) as! TagTableViewCell
+        cell.nameLabel.text = tags[indexPath.row].name
+        cell.countLabel.text = "(" + tags[indexPath.row].taggings_count.description + ")"
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
