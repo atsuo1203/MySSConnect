@@ -10,6 +10,7 @@
 		35D88B7D0AD2C4283ACF9C84 /* Pods_MySSConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E032B4EFA75C5ACB4BCAFE /* Pods_MySSConnect.framework */; };
 		9EB2BFC66C72A8AB458CF63B /* Pods_MySSConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5043CF477B1EDBE109DBBCC4 /* Pods_MySSConnectTests.framework */; };
 		BD60FB666B9CC99346DBC91A /* Pods_MySSConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B796EE76E024284D96DE24 /* Pods_MySSConnectUITests.framework */; };
+		C01B90801F85E470007A84C8 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01B907F1F85E470007A84C8 /* Tag.swift */; };
 		C05BD34C1F7D624B008361E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BD34B1F7D624B008361E2 /* AppDelegate.swift */; };
 		C05BD3531F7D624B008361E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C05BD3521F7D624B008361E2 /* Assets.xcassets */; };
 		C05BD3561F7D624B008361E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C05BD3541F7D624B008361E2 /* LaunchScreen.storyboard */; };
@@ -61,6 +62,7 @@
 		7CD911DCE41668312F42C0E5 /* Pods-MySSConnectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnectTests/Pods-MySSConnectTests.release.xcconfig"; sourceTree = "<group>"; };
 		9A0108B6D961B5A24649B035 /* Pods-MySSConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnect/Pods-MySSConnect.release.xcconfig"; sourceTree = "<group>"; };
 		A6E93220B82E041ABF24B7DE /* Pods-MySSConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnectTests/Pods-MySSConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C01B907F1F85E470007A84C8 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		C05BD3481F7D624B008361E2 /* MySSConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySSConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05BD34B1F7D624B008361E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C05BD3521F7D624B008361E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				C060CDF21F828AA500FD1C3C /* Story.swift */,
 				C060CDF41F828B7500FD1C3C /* Article.swift */,
 				C060CDF61F828B8000FD1C3C /* Blog.swift */,
+				C01B907F1F85E470007A84C8 /* Tag.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				C0ABF90B1F85D13D00A3B8E1 /* AddTableViewCell.swift in Sources */,
 				C060CDF71F828B8000FD1C3C /* Blog.swift in Sources */,
 				C060CDF31F828AA500FD1C3C /* Story.swift in Sources */,
+				C01B90801F85E470007A84C8 /* Tag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
