@@ -67,7 +67,7 @@ extension TagViewController: UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: "Result", bundle: nil)
         let nextVC = storyboard.instantiateInitialViewController() as! ResultViewController
         nextVC.tag = searchResult[indexPath.row]
-        self.navigationController?.present(nextVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
