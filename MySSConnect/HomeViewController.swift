@@ -25,17 +25,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.mainTableView.register(UINib(nibName: "AddCell", bundle: nil), forCellReuseIdentifier: "AddCell")
         self.mainTableView.estimatedRowHeight = 90
         self.mainTableView.rowHeight = UITableViewAutomaticDimension
-        getRequest()
+        getStories()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func getRequest(){
+    func getStories(){
         self.mainTableView.reloadData()
         
-        API.getRequest(tag: "", q: "", page: page.description).responseJSON { (response) in
+        API.getStories(tag: "", q: "", page: page.description).responseJSON { (response) in
 //            print(response.response?.allHeaderFields)
             guard let object = response.result.value else {
                 return
@@ -94,7 +94,7 @@ extension HomeViewController {
             showWebView(targetURL: stories[row].articles[0].url)
         } else {
             self.page += 1
-            getRequest()
+            getStories()
         }
     }
     
