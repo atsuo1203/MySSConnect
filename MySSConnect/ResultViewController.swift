@@ -13,6 +13,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     //受け取るやつ
     var tag: Tag!
+    var q: String!
     //page
     var page = 0
     var stories = [Story]()
