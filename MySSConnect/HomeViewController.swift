@@ -14,7 +14,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var mainTableView: UITableView!
     var stories = [Story]()
     let list = ["エレファント速報","b","c"]
-    var page = "1"
+    var page = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.mainTableView.delegate = self
         self.mainTableView.dataSource = self
         self.mainTableView.register(UINib(nibName: "MainCell", bundle: nil), forCellReuseIdentifier: "MainCell")
+        self.mainTableView.register(UINib(nibName: "AddCell", bundle: nil), forCellReuseIdentifier: "AddCell")
         self.mainTableView.estimatedRowHeight = 90
         self.mainTableView.rowHeight = UITableViewAutomaticDimension
         getRequest()
@@ -34,7 +35,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func getRequest(){
         self.mainTableView.reloadData()
         
-        API.getRequest(tag: "", q: "", page: page).responseJSON { (response) in
+        API.getRequest(tag: "", q: "", page: page.description).responseJSON { (response) in
 //            print(response.response?.allHeaderFields)
             guard let object = response.result.value else {
                 return
@@ -59,32 +60,44 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 extension HomeViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stories.count
+        return stories.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row < stories.count {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
+            cell.selectionStyle = .none
+            cell.titleLabel?.text = stories[indexPath.row].title
+            cell.blogPickerView.dataSource = self
+            cell.blogPickerView.delegate = self
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddTableViewCell
+            cell.selectionStyle = .none
+            return cell
+        }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
-        cell.selectionStyle = .none
-        cell.titleLabel?.text = stories[indexPath.row].title
-        cell.blogPickerView.dataSource = self
-        cell.blogPickerView.delegate = self
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //押されたcellを取得
-        let cell = tableView.cellForRow(at: indexPath) as! MainTableViewCell
-        //何番目が押されたかを取得
-        guard let row = self.mainTableView.indexPath(for: cell)?.row else {
-            return
+        if indexPath.row < stories.count {
+            //押されたcellを取得
+            let cell = tableView.cellForRow(at: indexPath) as! MainTableViewCell
+            //何番目が押されたかを取得
+            guard let row = self.mainTableView.indexPath(for: cell)?.row else {
+                return
+            }
+            //押されたcellのpickerViewの選択されていた番号を取得
+            let selectedIndex = cell.blogPickerView.selectedRow(inComponent: 0)
+            
+            print(row.description + "番目が押されて" + list[selectedIndex] + "が選択された")
+            showWebView(targetURL: stories[row].articles[0].url)
+        } else {
+            self.page += 1
+            getRequest()
         }
-        //押されたcellのpickerViewの選択されていた番号を取得
-        let selectedIndex = cell.blogPickerView.selectedRow(inComponent: 0)
-        
-        print(row.description + "番目が押されて" + list[selectedIndex] + "が選択された")
-        showWebView(targetURL: stories[row].articles[0].url)
     }
+    
 }
 
 extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate{
