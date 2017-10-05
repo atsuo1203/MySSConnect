@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import SafariServices
 import SwiftyJSON
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     var stories = [Story]()
     let list = ["エレファント速報","b","c"]
@@ -25,17 +24,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.mainTableView.register(UINib(nibName: "AddCell", bundle: nil), forCellReuseIdentifier: "AddCell")
         self.mainTableView.estimatedRowHeight = 90
         self.mainTableView.rowHeight = UITableViewAutomaticDimension
-        getRequest()
+        getStories()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func getRequest(){
+    func getStories(){
         self.mainTableView.reloadData()
         
-        API.getRequest(tag: "", q: "", page: page.description).responseJSON { (response) in
+        API.getStories(tag: "", q: "", page: page.description).responseJSON { (response) in
 //            print(response.response?.allHeaderFields)
             guard let object = response.result.value else {
                 return
@@ -48,17 +47,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.mainTableView.reloadData()
         }
     }
-    
-    func showWebView(targetURL: String) {
-        let url = URL(string: targetURL)!
-        let webView = SFSafariViewController(url: url)
-        present(webView, animated: true, completion: nil)
-    }
 
 }
 
 
-extension HomeViewController {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return stories.count + 1
     }
@@ -91,10 +84,10 @@ extension HomeViewController {
             let selectedIndex = cell.blogPickerView.selectedRow(inComponent: 0)
             
             print(row.description + "番目が押されて" + list[selectedIndex] + "が選択された")
-            showWebView(targetURL: stories[row].articles[0].url)
+            API.showWebView(viewController: self, targetURL: stories[row].articles[0].url)
         } else {
             self.page += 1
-            getRequest()
+            getStories()
         }
     }
     

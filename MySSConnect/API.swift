@@ -9,47 +9,38 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SafariServices
 
 class API {
     
-    static let baseURL = "https://ssconnect.elzup.com/v1/stories"
+    static let baseURL = "https://ssconnect.elzup.com/v1/"
     
-    static func getRequest() -> DataRequest {
-        let response = Alamofire.request(baseURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
-        print(response)
-        return response
-    }
-    
-    static func getRequest(tag: String, q: String, page: String) -> DataRequest {
-        let url = baseURL+"?tag="+tag+"&q="+q+"&page="+page
+    static func getStories() -> DataRequest {
+        let url = baseURL + "stories"
         let response = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
         print(response)
         return response
     }
     
-    static func postRequest(name: String, description: String){
-        let parameters: Parameters = [
-            "name": name,
-            "description": description
-        ]
-        Alamofire.request(baseURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-            print(response)
-        }
+    static func getStories(tag: String, q: String, page: String) -> DataRequest {
+        let url = baseURL+"stories"+"?tag="+tag+"&q="+q+"&page="+page
+        let encURL = NSURL(string:url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)
+        let response = Alamofire.request(encURL!.description, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+        print(response)
+        return response
     }
     
-    static func putRequest(userID: String, name: String, description: String) {
-        let parameters: Parameters = [
-            "name": name,
-            "description": description
-        ]
-        Alamofire.request(baseURL + userID, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-            print(response)
-        }
+    static func getTags() -> DataRequest {
+        let url = baseURL + "tags"
+        let response = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+        print(response)
+        return response
     }
     
-    static func deleteRequest(userID: String) {
-        Alamofire.request(baseURL + userID, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-            print(response)
-        }
+    static func showWebView(viewController: AnyObject, targetURL: String) {
+        let url = URL(string: targetURL)!
+        let webView = SFSafariViewController(url: url)
+        viewController.present(webView, animated: true, completion: nil)
     }
+
 }
