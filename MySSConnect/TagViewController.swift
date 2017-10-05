@@ -50,6 +50,7 @@ extension TagViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath) as! TagTableViewCell
+        cell.selectionStyle = .none
         cell.nameLabel.text = tags[indexPath.row].name
         cell.countLabel.text = "(" + tags[indexPath.row].taggings_count.description + ")"
         return cell
