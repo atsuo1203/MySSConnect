@@ -12,7 +12,7 @@ import SwiftyJSON
 class ResultViewController: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     //受け取るやつ
-    var tag: Tag!
+    var tag: String!
     var q: String!
     //page
     var page = 0
@@ -26,7 +26,11 @@ class ResultViewController: UIViewController {
         self.mainTableView.register(UINib(nibName: "AddCell", bundle: nil), forCellReuseIdentifier: "AddCell")
         self.mainTableView.estimatedRowHeight = 90
         self.mainTableView.rowHeight = UITableViewAutomaticDimension
-        self.navigationItem.title = tag.name
+        if q == "" {
+            self.navigationItem.title = tag
+        } else {
+            self.navigationItem.title = tag + "・" + q
+        }
         getStories()
     }
 
@@ -37,7 +41,7 @@ class ResultViewController: UIViewController {
     func getStories(){
         self.mainTableView.reloadData()
         
-        API.getStories(tag: tag.name, q: "", page: page.description).responseJSON { (response) in
+        API.getStories(tag: tag, q: q, page: page.description).responseJSON { (response) in
             guard let object = response.result.value else {
                 return
             }

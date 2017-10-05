@@ -43,7 +43,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     func search() {
         let storyboard = UIStoryboard(name: "Result", bundle: nil)
-        guard let nextVC = storyboard.instantiateInitialViewController() else {return}
+        let nextVC = storyboard.instantiateInitialViewController() as! ResultViewController
+        nextVC.tag = tagTextField.text!
+        nextVC.q = titleTextField.text!
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -51,15 +53,4 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
