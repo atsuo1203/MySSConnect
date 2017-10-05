@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     var stories = [Story]()
     let list = ["エレファント速報","b","c"]
@@ -51,7 +51,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 
-extension HomeViewController {
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource  {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return stories.count + 1
     }
