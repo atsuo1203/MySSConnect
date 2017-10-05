@@ -34,6 +34,8 @@
 		C060CDF71F828B8000FD1C3C /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDF61F828B8000FD1C3C /* Blog.swift */; };
 		C0ABF9091F85D10100A3B8E1 /* AddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0ABF9081F85D10100A3B8E1 /* AddCell.xib */; };
 		C0ABF90B1F85D13D00A3B8E1 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ABF90A1F85D13D00A3B8E1 /* AddTableViewCell.swift */; };
+		C0C73C4F1F86815B00584255 /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0C73C4E1F86815B00584255 /* TagCell.xib */; };
+		C0C73C511F868D0300584255 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C73C501F868D0300584255 /* TagTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		C060CDF61F828B8000FD1C3C /* Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
 		C0ABF9081F85D10100A3B8E1 /* AddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCell.xib; sourceTree = "<group>"; };
 		C0ABF90A1F85D13D00A3B8E1 /* AddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
+		C0C73C4E1F86815B00584255 /* TagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
+		C0C73C501F868D0300584255 /* TagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
 		EB9E3289B2A969C4B33D52C4 /* Pods-MySSConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySSConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySSConnect/Pods-MySSConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,6 +258,8 @@
 			children = (
 				C060CDED1F821C0C00FD1C3C /* MainCell.xib */,
 				C0ABF9081F85D10100A3B8E1 /* AddCell.xib */,
+				C0C73C4E1F86815B00584255 /* TagCell.xib */,
+				C0C73C501F868D0300584255 /* TagTableViewCell.swift */,
 				C0ABF90A1F85D13D00A3B8E1 /* AddTableViewCell.swift */,
 				C060CDEF1F821E4600FD1C3C /* MainTableViewCell.swift */,
 				C060CDD01F810ABA00FD1C3C /* API.swift */,
@@ -397,6 +403,7 @@
 				C060CDEE1F821C0C00FD1C3C /* MainCell.xib in Resources */,
 				C05BD3561F7D624B008361E2 /* LaunchScreen.storyboard in Resources */,
 				C05BD3531F7D624B008361E2 /* Assets.xcassets in Resources */,
+				C0C73C4F1F86815B00584255 /* TagCell.xib in Resources */,
 				C060CDDF1F8142C700FD1C3C /* Tag.storyboard in Resources */,
 				C060CDE31F8143B400FD1C3C /* Search.storyboard in Resources */,
 				C060CDD91F813E3900FD1C3C /* Home.storyboard in Resources */,
@@ -586,6 +593,7 @@
 				C060CDD51F813D9300FD1C3C /* MainTabController.swift in Sources */,
 				C060CDDB1F813E4F00FD1C3C /* HomeViewController.swift in Sources */,
 				C0ABF90B1F85D13D00A3B8E1 /* AddTableViewCell.swift in Sources */,
+				C0C73C511F868D0300584255 /* TagTableViewCell.swift in Sources */,
 				C060CDF71F828B8000FD1C3C /* Blog.swift in Sources */,
 				C060CDF31F828AA500FD1C3C /* Story.swift in Sources */,
 				C01B90801F85E470007A84C8 /* Tag.swift in Sources */,

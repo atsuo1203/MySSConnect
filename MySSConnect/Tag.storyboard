@@ -36,6 +36,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Tag" image="ic_label_outline" id="6ay-Zt-5pD"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mainTableView" destination="kbw-m1-pGS" id="HLl-S1-Wgj"/>
+                        <outlet property="tagSearchBar" destination="IwX-Pc-dzP" id="u0K-0b-mwY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcj-cB-bPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
