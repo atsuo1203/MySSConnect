@@ -11,7 +11,7 @@ import UIKit
 class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var blogPickerView: UIPickerView!
+    @IBOutlet weak var blogLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

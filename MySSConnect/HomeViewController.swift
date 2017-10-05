@@ -61,8 +61,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
             cell.selectionStyle = .none
             cell.titleLabel?.text = stories[indexPath.row].title
-            cell.blogPickerView.dataSource = self
-            cell.blogPickerView.delegate = self
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddTableViewCell
@@ -80,10 +78,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource  {
             guard let row = self.mainTableView.indexPath(for: cell)?.row else {
                 return
             }
-            //押されたcellのpickerViewの選択されていた番号を取得
-            let selectedIndex = cell.blogPickerView.selectedRow(inComponent: 0)
-            
-            print(row.description + "番目が押されて" + list[selectedIndex] + "が選択された")
             API.showWebView(viewController: self, targetURL: stories[row].articles[0].url)
         } else {
             self.page += 1
@@ -91,27 +85,4 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource  {
         }
     }
     
-}
-
-extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate{
-    
-    //列の数
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    //表示する数
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return list.count
-    }
-    
-    //表示する内容
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = list[row]
-        label.font = UIFont(name: "b",size:5)
-        return label
-    }
 }

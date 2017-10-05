@@ -257,11 +257,11 @@
 			isa = PBXGroup;
 			children = (
 				C060CDED1F821C0C00FD1C3C /* MainCell.xib */,
+				C060CDEF1F821E4600FD1C3C /* MainTableViewCell.swift */,
 				C0ABF9081F85D10100A3B8E1 /* AddCell.xib */,
+				C0ABF90A1F85D13D00A3B8E1 /* AddTableViewCell.swift */,
 				C0C73C4E1F86815B00584255 /* TagCell.xib */,
 				C0C73C501F868D0300584255 /* TagTableViewCell.swift */,
-				C0ABF90A1F85D13D00A3B8E1 /* AddTableViewCell.swift */,
-				C060CDEF1F821E4600FD1C3C /* MainTableViewCell.swift */,
 				C060CDD01F810ABA00FD1C3C /* API.swift */,
 			);
 			name = Common;

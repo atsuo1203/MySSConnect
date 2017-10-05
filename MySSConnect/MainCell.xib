@@ -19,43 +19,47 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017/12/03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gn4-Eg-y9b">
+                        <rect key="frame" x="281" y="68" width="86" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="PA7-Yj-GbS"/>
+                            <constraint firstAttribute="width" constant="86" id="qMd-F4-UuH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="エレファント速報" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEe-ua-JPc">
+                        <rect key="frame" x="8" y="66" width="183" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="EbS-hp-Mdg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="京子「あかりにドッキリをしかけよう」" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGn-jX-a9U">
                         <rect key="frame" x="8" y="8" width="359" height="41.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Erk-1k-pZI">
-                        <rect key="frame" x="-2" y="64" width="145" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="phv-jX-Aa7"/>
-                        </constraints>
-                    </pickerView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017/12/03" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gn4-Eg-y9b">
-                        <rect key="frame" x="281" y="71" width="86" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="86" id="D6v-pi-D85"/>
-                            <constraint firstAttribute="height" constant="16" id="y4w-Lv-quO"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Erk-1k-pZI" firstAttribute="leading" secondItem="b8K-n0-tDe" secondAttribute="leading" constant="-2" id="75v-aL-EAC"/>
-                    <constraint firstItem="fGn-jX-a9U" firstAttribute="leading" secondItem="b8K-n0-tDe" secondAttribute="leadingMargin" id="8Dx-h1-mJO"/>
-                    <constraint firstItem="gn4-Eg-y9b" firstAttribute="trailing" secondItem="b8K-n0-tDe" secondAttribute="trailingMargin" id="XjK-mT-dk8"/>
-                    <constraint firstItem="gn4-Eg-y9b" firstAttribute="leading" secondItem="Erk-1k-pZI" secondAttribute="trailing" constant="138" id="aXZ-MV-a9F"/>
-                    <constraint firstItem="fGn-jX-a9U" firstAttribute="trailing" secondItem="b8K-n0-tDe" secondAttribute="trailingMargin" id="fAh-kc-34h"/>
-                    <constraint firstItem="Erk-1k-pZI" firstAttribute="top" secondItem="fGn-jX-a9U" secondAttribute="bottom" constant="14.5" id="hao-ag-OHR"/>
-                    <constraint firstItem="fGn-jX-a9U" firstAttribute="top" secondItem="b8K-n0-tDe" secondAttribute="topMargin" id="thg-P5-0dg"/>
-                    <constraint firstAttribute="bottom" secondItem="Erk-1k-pZI" secondAttribute="bottom" constant="-8.5" id="uCn-Kd-XIV"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="gn4-Eg-y9b" secondAttribute="bottom" constant="0.5" id="x7U-Qp-Spb"/>
+                    <constraint firstItem="fGn-jX-a9U" firstAttribute="top" secondItem="b8K-n0-tDe" secondAttribute="topMargin" id="8Wx-2m-DlC"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="eEe-ua-JPc" secondAttribute="bottom" constant="0.5" id="JHR-ur-OG5"/>
+                    <constraint firstItem="gn4-Eg-y9b" firstAttribute="leading" secondItem="eEe-ua-JPc" secondAttribute="trailing" constant="90" id="O0u-QQ-ZoK"/>
+                    <constraint firstItem="gn4-Eg-y9b" firstAttribute="trailing" secondItem="b8K-n0-tDe" secondAttribute="trailingMargin" id="QBS-7c-QrF"/>
+                    <constraint firstItem="eEe-ua-JPc" firstAttribute="top" secondItem="fGn-jX-a9U" secondAttribute="bottom" constant="16.5" id="Utd-pv-8Lk"/>
+                    <constraint firstItem="fGn-jX-a9U" firstAttribute="trailing" secondItem="b8K-n0-tDe" secondAttribute="trailingMargin" id="W8h-Ca-lmG"/>
+                    <constraint firstItem="eEe-ua-JPc" firstAttribute="leading" secondItem="b8K-n0-tDe" secondAttribute="leadingMargin" id="hnW-tH-zzQ"/>
+                    <constraint firstItem="fGn-jX-a9U" firstAttribute="leading" secondItem="b8K-n0-tDe" secondAttribute="leadingMargin" id="q3n-fm-9iO"/>
+                    <constraint firstItem="gn4-Eg-y9b" firstAttribute="top" secondItem="fGn-jX-a9U" secondAttribute="bottom" constant="18.5" id="xAk-hk-ZZG"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="gn4-Eg-y9b" secondAttribute="bottom" constant="3.5" id="yQb-GI-cxN"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="blogPickerView" destination="Erk-1k-pZI" id="9h4-E7-USK"/>
+                <outlet property="blogLabel" destination="eEe-ua-JPc" id="Tma-io-6cW"/>
                 <outlet property="dateLabel" destination="gn4-Eg-y9b" id="sga-Qd-M8s"/>
                 <outlet property="titleLabel" destination="fGn-jX-a9U" id="p8q-ch-SVV"/>
             </connections>
