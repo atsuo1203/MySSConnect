@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SafariServices
 import SwiftyJSON
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -48,12 +47,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.mainTableView.reloadData()
         }
     }
-    
-    func showWebView(targetURL: String) {
-        let url = URL(string: targetURL)!
-        let webView = SFSafariViewController(url: url)
-        present(webView, animated: true, completion: nil)
-    }
 
 }
 
@@ -91,7 +84,7 @@ extension HomeViewController {
             let selectedIndex = cell.blogPickerView.selectedRow(inComponent: 0)
             
             print(row.description + "番目が押されて" + list[selectedIndex] + "が選択された")
-            showWebView(targetURL: stories[row].articles[0].url)
+            API.showWebView(viewController: self, targetURL: stories[row].articles[0].url)
         } else {
             self.page += 1
             getStories()

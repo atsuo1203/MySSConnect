@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SafariServices
 
 class API {
     
@@ -35,29 +36,10 @@ class API {
         return response
     }
     
-    static func postRequest(name: String, description: String){
-        let parameters: Parameters = [
-            "name": name,
-            "description": description
-        ]
-        Alamofire.request(baseURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-            print(response)
-        }
+    static func showWebView(viewController: AnyObject, targetURL: String) {
+        let url = URL(string: targetURL)!
+        let webView = SFSafariViewController(url: url)
+        viewController.present(webView, animated: true, completion: nil)
     }
-    
-    static func putRequest(userID: String, name: String, description: String) {
-        let parameters: Parameters = [
-            "name": name,
-            "description": description
-        ]
-        Alamofire.request(baseURL + userID, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-            print(response)
-        }
-    }
-    
-    static func deleteRequest(userID: String) {
-        Alamofire.request(baseURL + userID, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
-            print(response)
-        }
-    }
+
 }
