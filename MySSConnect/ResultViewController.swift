@@ -15,7 +15,9 @@ class ResultViewController: UIViewController {
     var tag: String!
     var q: String!
     //page
-    var page = 0
+    var page = 1
+    //最後のページ
+    var lastPage = 1000
     var stories = [Story]()
     
     override func viewDidLoad() {
@@ -39,8 +41,7 @@ class ResultViewController: UIViewController {
     }
     
     func getStories(){
-        self.mainTableView.reloadData()
-        
+        self.stories.removeAll()
         API.getStories(tag: tag, q: q, page: page.description).responseJSON { (response) in
             guard let object = response.result.value else {
                 return
@@ -58,25 +59,45 @@ class ResultViewController: UIViewController {
 
 extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stories.count + 1
+        return stories.count + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < stories.count {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddTableViewCell
+            cell.selectionStyle = .none
+            cell.addLabel.text = "前のページへ"
+            if page == 1 {
+                cell.addLabel.textColor = UIColor.lightGray
+            } else {
+                cell.addLabel.textColor = UIColor.blue
+            }
+            cell.selectionStyle = .none
+            return cell
+        } else if (indexPath.row < stories.count + 1) && (indexPath.row > 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
             cell.selectionStyle = .none
-            cell.titleLabel?.text = stories[indexPath.row].title
+            cell.titleLabel?.text = stories[indexPath.row - 1].title
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddTableViewCell
             cell.selectionStyle = .none
+            cell.addLabel.text = "次のページへ"
+            if page == lastPage {
+                cell.addLabel.textColor = UIColor.lightGray
+            } else {
+                cell.addLabel.textColor = UIColor.blue
+            }
             return cell
         }
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row < stories.count {
+        if indexPath.row == 0 {
+           self.page -= 1
+            getStories()
+        } else if (indexPath.row < stories.count + 1) && (indexPath.row > 0) {
             //押されたcellを取得
             let cell = tableView.cellForRow(at: indexPath) as! MainTableViewCell
             //何番目が押されたかを取得
