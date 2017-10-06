@@ -49,6 +49,7 @@
                     <tabBarItem key="tabBarItem" title="設定" image="ic_settings" id="Yj1-EW-BqF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="blogPickerView" destination="C7G-Fs-Fsa" id="IXC-yz-uX1"/>
                         <outlet property="checkImageView" destination="uIV-L5-0I9" id="KiU-AH-0Jh"/>
                     </connections>
                 </viewController>
