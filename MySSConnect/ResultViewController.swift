@@ -12,12 +12,14 @@ import SwiftyJSON
 class ResultViewController: UIViewController {
     @IBOutlet weak var mainTableView: UITableView!
     //受け取るやつ
-    var tag: String!
-    var q: String!
+    var tag = ""
+    var q = ""
+    //HomeViewControllerとして使われているかどうか
+    var isHomeViewController = Bool()
     //page
     var page = 1
-    //最後のページ
     var lastPage = 1000
+    
     var stories = [Story]()
     
     override func viewDidLoad() {
@@ -32,6 +34,9 @@ class ResultViewController: UIViewController {
             self.navigationItem.title = tag
         } else {
             self.navigationItem.title = tag + "・" + q
+        }
+        if isHomeViewController {
+            self.navigationItem.title = "Home"
         }
         getStories()
     }
@@ -104,7 +109,7 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             guard let row = self.mainTableView.indexPath(for: cell)?.row else {
                 return
             }
-            API.showWebView(viewController: self, targetURL: stories[row].articles[0].url)
+            API.showWebView(viewController: self, targetURL: stories[row - 1].articles[0].url)
         } else {
             self.page += 1
             getStories()

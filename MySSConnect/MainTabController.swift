@@ -15,10 +15,12 @@ class MainTabController: UITabBarController {
         super.viewDidLoad()
         var viewControllers: [UIViewController] = []
 
-        let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-        let homeViewController = homeStoryboard.instantiateInitialViewController()!
-        homeViewController.title = "Home"
+        let homeStoryboard = UIStoryboard(name: "Result", bundle: nil)
+        let homeViewController = homeStoryboard.instantiateInitialViewController() as! ResultViewController
+        homeViewController.isHomeViewController = true
         let navigationControllerHome = UINavigationController(rootViewController: homeViewController)
+        navigationControllerHome.tabBarItem.title = "Home"
+        navigationControllerHome.tabBarItem.image = UIImage(named: "ic_home")
         viewControllers.append(navigationControllerHome)
         
         let tagStoryboard = UIStoryboard(name: "Tag", bundle: nil)
