@@ -49,11 +49,13 @@ class ResultViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.articles.removeAll()
         self.mainTableView.reloadData()
     }
     
     func getStories(){
         self.stories.removeAll()
+        self.articles.removeAll()
         API.getStories(tag: tag, q: q, page: page.description).responseJSON { (response) in
             guard let object = response.result.value else {
                 return
