@@ -19,8 +19,6 @@
 		C060CDD11F810ABA00FD1C3C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDD01F810ABA00FD1C3C /* API.swift */; };
 		C060CDD31F813D1500FD1C3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDD21F813D1500FD1C3C /* Main.storyboard */; };
 		C060CDD51F813D9300FD1C3C /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDD41F813D9300FD1C3C /* MainTabController.swift */; };
-		C060CDD91F813E3900FD1C3C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDD81F813E3900FD1C3C /* Home.storyboard */; };
-		C060CDDB1F813E4F00FD1C3C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDDA1F813E4F00FD1C3C /* HomeViewController.swift */; };
 		C060CDDF1F8142C700FD1C3C /* Tag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDDE1F8142C700FD1C3C /* Tag.storyboard */; };
 		C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE01F8142D600FD1C3C /* TagViewController.swift */; };
 		C060CDE31F8143B400FD1C3C /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDE21F8143B400FD1C3C /* Search.storyboard */; };
@@ -79,8 +77,6 @@
 		C060CDD01F810ABA00FD1C3C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C060CDD21F813D1500FD1C3C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C060CDD41F813D9300FD1C3C /* MainTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
-		C060CDD81F813E3900FD1C3C /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		C060CDDA1F813E4F00FD1C3C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C060CDDE1F8142C700FD1C3C /* Tag.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tag.storyboard; sourceTree = "<group>"; };
 		C060CDE01F8142D600FD1C3C /* TagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		C060CDE21F8143B400FD1C3C /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
@@ -176,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				C060CDD61F813DED00FD1C3C /* Main */,
-				C060CDD71F813E1600FD1C3C /* Home */,
 				C060CDDD1F8141CB00FD1C3C /* Tag */,
 				C060CDDC1F8141B300FD1C3C /* Search */,
 				C060CDE61F82081E00FD1C3C /* Result */,
@@ -215,15 +210,6 @@
 				C060CDD41F813D9300FD1C3C /* MainTabController.swift */,
 			);
 			name = Main;
-			sourceTree = "<group>";
-		};
-		C060CDD71F813E1600FD1C3C /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				C060CDD81F813E3900FD1C3C /* Home.storyboard */,
-				C060CDDA1F813E4F00FD1C3C /* HomeViewController.swift */,
-			);
-			name = Home;
 			sourceTree = "<group>";
 		};
 		C060CDDC1F8141B300FD1C3C /* Search */ = {
@@ -406,7 +392,6 @@
 				C0C73C4F1F86815B00584255 /* TagCell.xib in Resources */,
 				C060CDDF1F8142C700FD1C3C /* Tag.storyboard in Resources */,
 				C060CDE31F8143B400FD1C3C /* Search.storyboard in Resources */,
-				C060CDD91F813E3900FD1C3C /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +576,6 @@
 				C060CDD11F810ABA00FD1C3C /* API.swift in Sources */,
 				C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */,
 				C060CDD51F813D9300FD1C3C /* MainTabController.swift in Sources */,
-				C060CDDB1F813E4F00FD1C3C /* HomeViewController.swift in Sources */,
 				C0ABF90B1F85D13D00A3B8E1 /* AddTableViewCell.swift in Sources */,
 				C0C73C511F868D0300584255 /* TagTableViewCell.swift in Sources */,
 				C060CDF71F828B8000FD1C3C /* Blog.swift in Sources */,
