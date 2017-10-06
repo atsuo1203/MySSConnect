@@ -37,6 +37,13 @@ class API {
         return response
     }
     
+    static func getBlog() -> DataRequest {
+        let url = baseURL + "blogs"
+        let response = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+        print(response)
+        return response
+    }
+    
     static func showWebView(viewController: AnyObject, targetURL: String) {
         let url = URL(string: targetURL)!
         let webView = SFSafariViewController(url: url)
