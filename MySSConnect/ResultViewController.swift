@@ -115,9 +115,12 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         } else if (indexPath.row < stories.count + 1) && (indexPath.row > 0) {
+            let story = stories[indexPath.row - 1]
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
             cell.selectionStyle = .none
-            cell.titleLabel?.text = stories[indexPath.row - 1].title
+            cell.titleLabel?.text = story.title
+            cell.blogLabel.text = story.articles[0].blog.title
+            cell.dateLabel.text = story.first_posted_at.components(separatedBy: "T").first!
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddTableViewCell

@@ -18,7 +18,6 @@ class API {
     static func getStories() -> DataRequest {
         let url = baseURL + "stories"
         let response = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
-        print(response)
         return response
     }
     
@@ -26,21 +25,18 @@ class API {
         let url = baseURL+"stories"+"?tag="+tag+"&q="+q+"&page="+page
         let encURL = NSURL(string:url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)
         let response = Alamofire.request(encURL!.description, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
-        print(response)
         return response
     }
     
     static func getTags() -> DataRequest {
         let url = baseURL + "tags"
         let response = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
-        print(response)
         return response
     }
     
     static func getBlog() -> DataRequest {
         let url = baseURL + "blogs"
         let response = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
-        print(response)
         return response
     }
     
