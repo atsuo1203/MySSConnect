@@ -12,13 +12,11 @@ import SwiftyJSON
 class Article: NSObject {
     var id: Int
     var url: String
-    var posted_at: String
     var blog: Blog
     
     init(json: JSON) {
         self.id = json["id"].intValue
-        self.url = json["url"].description
-        self.posted_at = json["posted_at"].description
+        self.url = json["url"].stringValue
         self.blog = Blog(json: json["blog"])
     }
 }

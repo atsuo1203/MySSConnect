@@ -12,15 +12,9 @@ import SwiftyJSON
 class Blog: NSObject {
     var id: Int
     var title: String
-    var rss: String
-    var created_at: String
-    var updated_at: String
     
     init(json: JSON) {
         self.id = json["id"].intValue
         self.title = json["title"].description
-        self.rss = json["rss"].description
-        self.created_at = json["created_at"].description
-        self.updated_at = json["updated_at"].description
     }
 }
