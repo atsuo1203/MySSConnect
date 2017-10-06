@@ -38,7 +38,7 @@ class ResultViewController: UIViewController {
         if isHomeViewController {
             self.navigationItem.title = "Home"
         }
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "page遷移", style: .plain, target: self, action: #selector(self.alert))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "page遷移", style: .plain, target: self, action: #selector(self.alert))
         getStories()
     }
 
