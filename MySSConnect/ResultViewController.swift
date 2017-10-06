@@ -38,6 +38,7 @@ class ResultViewController: UIViewController {
         if isHomeViewController {
             self.navigationItem.title = "Home"
         }
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "page遷移", style: .plain, target: self, action: #selector(self.alert))
         getStories()
     }
 
@@ -60,6 +61,38 @@ class ResultViewController: UIViewController {
             self.mainTableView.setContentOffset(CGPoint(x: 0,y: -self.mainTableView.contentInset.top), animated: false)
             self.mainTableView.reloadData()
         }
+    }
+    
+    func alert(){
+        let alert = UIAlertController(title: "page遷移", message: "", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            let textField = alert.textFields?[0]
+            let pageNumber = Int(textField!.text!)
+            if pageNumber != nil {
+                if pageNumber! < self.lastPage {
+                    self.page = pageNumber!
+                    self.getStories()
+                } else {
+                    let alert2 = UIAlertController(title: "警告", message: "pageが存在しません", preferredStyle: .alert)
+                    let defaultAction2 = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert2.addAction(defaultAction2)
+                    self.present(alert2, animated: true, completion: nil)
+                }
+            } else {
+                    let alert2 = UIAlertController(title: "警告", message: "数字を入力してください", preferredStyle: .alert)
+                    let defaultAction2 = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert2.addAction(defaultAction2)
+                    self.present(alert2, animated: true, completion: nil)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (action) in
+        }
+        alert.addAction(defaultAction)
+        alert.addAction(cancelAction)
+        alert.addTextField { (textField) in }
+        
+        present(alert, animated: true, completion: nil)
+        
     }
     
 }
