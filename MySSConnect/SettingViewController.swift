@@ -42,7 +42,13 @@ class SettingViewController: UIViewController {
                 let blog = Blog(json: json)
                 self.blogs.append(blog)
             }
-            self.blogNameLabel.text = self.blogs[0].title
+            var resultBlog = self.blogs[0].title
+            self.blogs.forEach({ (blog) in
+                if blog.id == RealmBlog.getID(name: "realm") {
+                    resultBlog = blog.title
+                }
+            })
+            self.blogNameLabel.text = resultBlog
             self.blogPickerView.reloadAllComponents()
         }
     }
