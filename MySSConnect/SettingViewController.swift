@@ -49,13 +49,14 @@ class SettingViewController: UIViewController {
     
     func checkButtonTapped(){
         let row = blogPickerView.selectedRow(inComponent: 0)
-        alert(blogName: blogs[row].title)
+        alert(blog: blogs[row])
     }
     
-    func alert(blogName: String){
-        let alert = UIAlertController(title: "優先したブログは", message: blogName + "です", preferredStyle: .alert)
+    func alert(blog: Blog){
+        let alert = UIAlertController(title: "優先したブログは", message: blog.title + "です", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .default) { (action) in
-            self.blogNameLabel.text = blogName
+            self.blogNameLabel.text = blog.title
+            RealmBlog.updateBlogID(name: "realm", id: blog.id)
         }
         alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)

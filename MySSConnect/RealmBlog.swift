@@ -65,4 +65,9 @@ class RealmBlog: Object {
             realmBlog.id = id
         }
     }
+    
+    static func getID(name: String) -> Int {
+        let realmBlog = getRealmBlog(name: name)
+        return realmBlog.id
+    }
 }

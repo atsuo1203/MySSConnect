@@ -14,7 +14,11 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var viewControllers: [UIViewController] = []
-
+        
+        if RealmBlog.getRealmBlogCount() == 0 {
+            RealmBlog.create(name: "realm").put()
+        }
+        
         let homeStoryboard = UIStoryboard(name: "Result", bundle: nil)
         let homeViewController = homeStoryboard.instantiateInitialViewController() as! ResultViewController
         homeViewController.isHomeViewController = true

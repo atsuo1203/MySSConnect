@@ -46,6 +46,11 @@ class ResultViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.mainTableView.reloadData()
+    }
+    
     func getStories(){
         self.stories.removeAll()
         API.getStories(tag: tag, q: q, page: page.description).responseJSON { (response) in
@@ -119,7 +124,13 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
             cell.selectionStyle = .none
             cell.titleLabel?.text = story.title
-            cell.blogLabel.text = story.articles[0].blog.title
+            var blogName = story.articles[0].blog.title
+            story.articles.forEach({ (article) in
+                if article.blog.id == RealmBlog.getID(name: "realm") {
+                    blogName = article.blog.title
+                }
+            })
+            cell.blogLabel.text = blogName
             cell.dateLabel.text = story.first_posted_at.components(separatedBy: "T").first!
             return cell
         } else {
