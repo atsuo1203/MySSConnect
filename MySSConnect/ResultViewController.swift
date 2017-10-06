@@ -56,6 +56,7 @@ class ResultViewController: UIViewController {
                 let story = Story(json: json)
                 self.stories.append(story)
             }
+            self.mainTableView.setContentOffset(CGPoint(x: 0,y: -self.mainTableView.contentInset.top), animated: false)
             self.mainTableView.reloadData()
         }
     }
