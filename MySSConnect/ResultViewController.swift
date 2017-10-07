@@ -18,10 +18,13 @@ class ResultViewController: UIViewController {
     var isHomeViewController = Bool()
     //page
     var page = 1
-    var lastPage = 1000
-    var articles = [Article]()
-    
+    var lastPage = 1
+    //pageが最初か最後か
+    var isFirstPage = false
+    var isLastPage = false
+    //storyとarticle
     var stories = [Story]()
+    var articles = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +60,7 @@ class ResultViewController: UIViewController {
         self.stories.removeAll()
         self.articles.removeAll()
         API.getStories(tag: tag, q: q, page: page.description).responseJSON { (response) in
+            self.setPage(data: response.response)
             guard let object = response.result.value else {
                 return
             }
@@ -100,9 +104,20 @@ class ResultViewController: UIViewController {
         alert.addTextField { (textField) in }
         
         present(alert, animated: true, completion: nil)
-        
     }
     
+    //headerから取ってきた要素で、現在のpageと全pageを判定する
+    func setPage(data: HTTPURLResponse?){
+        let header = data?.allHeaderFields.description
+        if header != nil {
+            let page = header!.components(separatedBy: "(\"X-Page\"): ")[1].components(separatedBy: ",").first!
+            let lastPage = header!.components(separatedBy: "(\"X-Total-Pages\"): ")[1].components(separatedBy: ",").first!
+            self.page = Int(page)!
+            self.lastPage = Int(lastPage)!
+            self.isFirstPage = self.page <= 1
+            self.isLastPage = self.page == self.lastPage
+        }
+    }
 }
 
 extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
@@ -114,11 +129,12 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddTableViewCell
             cell.selectionStyle = .none
-            cell.addLabel.text = "前のページへ"
-            if page == 1 {
+            if isFirstPage {
                 cell.addLabel.textColor = UIColor.lightGray
+                cell.addLabel.text = "前のページへ"
             } else {
                 cell.addLabel.textColor = UIColor.blue
+                cell.addLabel.text = "前のページへ(" + (self.page - 1).description + "/" + self.lastPage.description + ")"
             }
             cell.selectionStyle = .none
             return cell
@@ -145,11 +161,13 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddTableViewCell
             cell.selectionStyle = .none
-            cell.addLabel.text = "次のページへ"
-            if page == lastPage {
+            if isLastPage {
                 cell.addLabel.textColor = UIColor.lightGray
+                cell.addLabel.text = "次のページへ"
             } else {
                 cell.addLabel.textColor = UIColor.blue
+                cell.addLabel.text = "次のページへ(" + (self.page + 1).description + "/" + self.lastPage.description + ")"
+                
             }
             return cell
         }
@@ -158,8 +176,10 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-           self.page -= 1
-            getStories()
+            if !isFirstPage {
+                page -= 1
+                getStories()
+            }
         } else if (indexPath.row < stories.count + 1) && (indexPath.row > 0) {
             //押されたcellを取得
             let cell = tableView.cellForRow(at: indexPath) as! MainTableViewCell
@@ -169,8 +189,10 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             }
             API.showWebView(viewController: self, targetURL: self.articles[row - 1].url)
         } else {
-            self.page += 1
-            getStories()
+            if !isLastPage {
+                page += 1
+                getStories()
+            }
         }
     }
 }
