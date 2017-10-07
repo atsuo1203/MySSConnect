@@ -108,11 +108,10 @@ class ResultViewController: UIViewController {
     
     //headerから取ってきた要素で、現在のpageと全pageを判定する
     func setPage(data: HTTPURLResponse?){
-        let header = data?.allHeaderFields
+        let header = data?.allHeaderFields.description
         if header != nil {
-            let parameter = header!.description.components(separatedBy: ",")
-            let page = parameter[2].components(separatedBy: " ").last!
-            let lastPage = parameter[9].components(separatedBy: " ").last!
+            let page = header!.components(separatedBy: "(\"X-Page\"): ")[1].components(separatedBy: ",").first!
+            let lastPage = header!.components(separatedBy: "(\"X-Total-Pages\"): ")[1].components(separatedBy: ",").first!
             self.page = Int(page)!
             self.lastPage = Int(lastPage)!
             self.isFirstPage = self.page <= 1
