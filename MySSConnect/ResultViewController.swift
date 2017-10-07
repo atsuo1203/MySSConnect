@@ -19,6 +19,7 @@ class ResultViewController: UIViewController {
     //page
     var page = 1
     var lastPage = 1000
+    var articles = [Article]()
     
     var stories = [Story]()
     
@@ -46,8 +47,15 @@ class ResultViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.articles.removeAll()
+        self.mainTableView.reloadData()
+    }
+    
     func getStories(){
         self.stories.removeAll()
+        self.articles.removeAll()
         API.getStories(tag: tag, q: q, page: page.description).responseJSON { (response) in
             guard let object = response.result.value else {
                 return
@@ -119,8 +127,20 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
             cell.selectionStyle = .none
             cell.titleLabel?.text = story.title
-            cell.blogLabel.text = story.articles[0].blog.title
             cell.dateLabel.text = story.first_posted_at.components(separatedBy: "T").first!
+            
+            //realmに入っているblogIDで判定
+            var blogName = story.articles[0].blog.title
+            var resultArticle = story.articles[0]
+            story.articles.forEach({ (article) in
+                if article.blog.id == RealmBlog.getID(name: "realm") {
+                    blogName = article.blog.title
+                    resultArticle = article
+                }
+            })
+            cell.blogLabel.text = blogName
+            self.articles.append(resultArticle)
+            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddTableViewCell
@@ -147,7 +167,7 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             guard let row = self.mainTableView.indexPath(for: cell)?.row else {
                 return
             }
-            API.showWebView(viewController: self, targetURL: stories[row - 1].articles[0].url)
+            API.showWebView(viewController: self, targetURL: self.articles[row - 1].url)
         } else {
             self.page += 1
             getStories()
