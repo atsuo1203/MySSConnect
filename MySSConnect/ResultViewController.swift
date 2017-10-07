@@ -57,6 +57,14 @@ class ResultViewController: UIViewController {
         self.stories.removeAll()
         self.articles.removeAll()
         API.getStories(tag: tag, q: q, page: page.description).responseJSON { (response) in
+            let header = response.response?.allHeaderFields
+            if header != nil {
+                let parameter = header!.description.components(separatedBy: ",")
+                let page = parameter[2].components(separatedBy: " ").last!
+                let lastPage = parameter[9].components(separatedBy: " ").last!
+                print(page)
+                print(lastPage)
+            }
             guard let object = response.result.value else {
                 return
             }
