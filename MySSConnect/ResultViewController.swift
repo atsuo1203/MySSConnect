@@ -24,7 +24,6 @@ class ResultViewController: UIViewController {
     var isLastPage = false
     //storyとarticle
     var stories = [Story]()
-    var articles = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,13 +51,11 @@ class ResultViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.articles.removeAll()
         self.mainTableView.reloadData()
     }
     
     func getStories(){
         self.stories.removeAll()
-        self.articles.removeAll()
         API.getStories(tag: tag, q: q, page: page.description).responseJSON { (response) in
             self.setPage(data: response.response)
             guard let object = response.result.value else {
@@ -118,6 +115,17 @@ class ResultViewController: UIViewController {
             self.isLastPage = self.page == self.lastPage
         }
     }
+    
+    //realmに登録されているblog_idをチェック
+    func registInRealmArticle(story: Story) -> Article {
+        var resultArticle = story.articles[0]
+        story.articles.forEach({ (article) in
+            if article.blog.id == RealmBlog.getID(name: "realm") {
+                resultArticle = article
+            }
+        })
+        return resultArticle
+    }
 }
 
 extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
@@ -146,16 +154,9 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             cell.dateLabel.text = story.first_posted_at.components(separatedBy: "T").first!
             
             //realmに入っているblogIDで判定
-            var blogName = story.articles[0].blog.title
-            var resultArticle = story.articles[0]
-            story.articles.forEach({ (article) in
-                if article.blog.id == RealmBlog.getID(name: "realm") {
-                    blogName = article.blog.title
-                    resultArticle = article
-                }
-            })
+            let article = registInRealmArticle(story: story)
+            let blogName = article.blog.title
             cell.blogLabel.text = blogName
-            self.articles.append(resultArticle)
             
             return cell
         } else {
@@ -187,7 +188,9 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             guard let row = self.mainTableView.indexPath(for: cell)?.row else {
                 return
             }
-            API.showWebView(viewController: self, targetURL: self.articles[row - 1].url)
+            let story = stories[row - 1]
+            let url = registInRealmArticle(story: story).url
+            API.showWebView(viewController: self, targetURL: url)
         } else {
             if !isLastPage {
                 page += 1
