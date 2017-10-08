@@ -196,7 +196,6 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
         //お気に入り追加
         let edit = UITableViewRowAction(style: .normal, title: "お気に入り") {
             (action, indexPath) in
-            print("tapped")
             let story = self.stories[indexPath.row - 1]
             RealmStory.addStory(story: story)
             tableView.reloadData()

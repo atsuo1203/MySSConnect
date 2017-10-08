@@ -43,6 +43,8 @@ class SearchAndTableViewController: UIViewController {
         }
         if self.title! == "Favorite" {
             type = .favorite
+            self.mainTableView.estimatedRowHeight = 90
+            self.mainTableView.rowHeight = UITableViewAutomaticDimension
             self.mainTableView.register(UINib(nibName: "MainCell", bundle: nil), forCellReuseIdentifier: "MainCell")
             getStories()
         }
@@ -82,7 +84,6 @@ class SearchAndTableViewController: UIViewController {
     func getStories() {
         self.stories = RealmStory.getAllFilterBlogID()
         self.storiesResult = self.stories
-        print(storiesResult)
         self.mainTableView.reloadData()
     }
 }
