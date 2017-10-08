@@ -16,10 +16,13 @@ class RealmString: Object {
 
 class RealmStory: Object {
     dynamic var story_id = 0
+    dynamic var title = ""
     dynamic var url = ""
+    dynamic var blog_name = ""
+    dynamic var data = ""
     
     //urlの配列を作るために必要
-    var blogIDAndUrls: [String] {
+    var blogAndUrls: [String] {
         get {
             return _backingClipKeys.map { $0.blogIDAndUrl }
         }
@@ -30,7 +33,7 @@ class RealmStory: Object {
     let _backingClipKeys = List<RealmString>()
     
     override static func ignoredProperties() -> [String] {
-        return ["blogIDAndUrls"]
+        return ["blogAndUrls"]
     }
     
     override class func primaryKey() -> String {
@@ -40,8 +43,11 @@ class RealmStory: Object {
     static func create(story: Story) -> RealmStory {
         let realmStory = RealmStory()
         realmStory.story_id = story.id
-        realmStory.blogIDAndUrls = story.articles.map { $0.blog.id.description + "," + $0.url }
+        realmStory.title = story.title
+        realmStory.blogAndUrls = story.articles.map { $0.blog.id.description + "," + $0.blog.title + "," + $0.url }
         realmStory.url = story.articles[0].url
+        realmStory.blog_name = story.articles[0].blog.title
+        realmStory.data = story.first_posted_at.components(separatedBy: "T").first!
         return realmStory
     }
     
@@ -67,11 +73,11 @@ class RealmStory: Object {
         let stories = getAll()
         let blog_id = RealmBlog.getID(name: "realm")
         stories.forEach { (realmStory) in
-            realmStory.blogIDAndUrls.forEach({ (blogIDAndUrl) in
+            realmStory.blogAndUrls.forEach({ (blogIDAndUrl) in
                 let param = blogIDAndUrl.components(separatedBy: ",")
                 let id = param[0]
                 if id == blog_id.description {
-                    updateStoryURL(id: realmStory.story_id, url: param[1])
+                    updateURLAndBlog(id: realmStory.story_id, url: param[2], blog_name: param[1])
                 }
             })
         }
@@ -82,10 +88,11 @@ class RealmStory: Object {
         create(story: story).put()
     }
     
-    static func updateStoryURL(id: Int, url: String){
+    static func updateURLAndBlog(id: Int, url: String, blog_name: String){
         let realm = try! Realm()
         try! realm.write {
             getRealmStory(id: id).url = url
+            getRealmStory(id: id).blog_name = blog_name
         }
     }
     
