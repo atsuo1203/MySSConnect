@@ -88,4 +88,17 @@ class RealmStory: Object {
             getRealmStory(id: id).url = url
         }
     }
+    
+    static func delete(entry: RealmStory) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(entry)
+        }
+    }
+    
+    static func deleteAll(){
+        getAll().forEach {
+            delete(entry: $0)
+        }
+    }
 }
