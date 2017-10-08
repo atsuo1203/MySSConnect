@@ -58,7 +58,7 @@ class SearchAndTableViewController: UIViewController {
         super.viewWillAppear(animated)
         switch type {
         case .tag:
-            getTags()
+            print("hello")
         case .favorite:
             getStories()
         }
@@ -127,6 +127,27 @@ extension SearchAndTableViewController: UITableViewDelegate, UITableViewDataSour
         case .favorite:
             API.showWebView(viewController: self, targetURL: storiesResult[indexPath.row].url)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        switch type {
+        case .tag:
+            return []
+        case .favorite:
+            //お気に入り追加
+            let edit = UITableViewRowAction(style: .default, title: "削除") {
+                (action, indexPath) in
+                RealmStory.delete(entry: self.storiesResult[indexPath.row])
+                self.getStories()
+            }
+            edit.backgroundColor = UIColor.red
+            return [edit]
+        }
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        mainTableView.setEditing(editing, animated: animated)
     }
 }
 
