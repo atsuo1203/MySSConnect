@@ -23,4 +23,12 @@ class Story: NSObject {
         self.tag_list = json["tag_list"].arrayValue.map { $0.stringValue }
         self.articles = json["articles"].arrayValue.map { Article(json: $0) }
     }
+    convenience override init() {
+        self.init(json: JSON.init(""))
+        self.id = 0
+        self.title = ""
+        self.first_posted_at = ""
+        self.tag_list = [String]()
+        self.articles = [Article]()
+    }
 }
