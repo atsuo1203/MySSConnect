@@ -76,11 +76,6 @@ class RealmStory: Object {
     }
     
     static func addStory(story: Story){
-        let stories = getAll()
-        stories.forEach { (realmStory) in
-            if realmStory.story_id != story.id {
-                create(story: story).put()
-            }
-        }
+        create(story: story).put()
     }
 }

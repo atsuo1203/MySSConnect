@@ -182,13 +182,7 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
                 getStories()
             }
         } else if (indexPath.row < stories.count + 1) && (indexPath.row > 0) {
-            //押されたcellを取得
-            let cell = tableView.cellForRow(at: indexPath) as! MainTableViewCell
-            //何番目が押されたかを取得
-            guard let row = self.mainTableView.indexPath(for: cell)?.row else {
-                return
-            }
-            let story = stories[row - 1]
+            let story = stories[indexPath.row - 1]
             let url = registInRealmArticle(story: story).url
             API.showWebView(viewController: self, targetURL: url)
         } else {
@@ -204,6 +198,9 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
         let edit = UITableViewRowAction(style: .normal, title: "お気に入り") {
             (action, indexPath) in
             print("tapped")
+            let story = self.stories[indexPath.row - 1]
+            RealmStory.addStory(story: story)
+            print(RealmStory.getAll())
         }
         
         edit.backgroundColor = UIColor.orange
