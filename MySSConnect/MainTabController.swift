@@ -27,13 +27,13 @@ class MainTabController: UITabBarController {
         navigationControllerHome.tabBarItem.image = UIImage(named: "ic_home")
         viewControllers.append(navigationControllerHome)
         
-        let searchAndTableStoryboard = UIStoryboard(name: "SearchAndTable", bundle: nil)
-        let searchAndTableViewController = searchAndTableStoryboard.instantiateInitialViewController()!
-        searchAndTableViewController.title = "Tag"
-        let navigationControllerSearchAndTable = UINavigationController(rootViewController: searchAndTableViewController)
-        navigationControllerSearchAndTable.tabBarItem.title = "tag"
-        navigationControllerSearchAndTable.tabBarItem.image = UIImage(named: "ic_label_outline")
-        viewControllers.append(navigationControllerSearchAndTable)
+        let tagStoryboard = UIStoryboard(name: "SearchAndTable", bundle: nil)
+        let tagViewController = tagStoryboard.instantiateInitialViewController()! as! SearchAndTableViewController
+        tagViewController.title = "Tag"
+        let navigationControllerTag = UINavigationController(rootViewController: tagViewController)
+        navigationControllerTag.tabBarItem.title = "tag"
+        navigationControllerTag.tabBarItem.image = UIImage(named: "ic_label_outline")
+        viewControllers.append(navigationControllerTag)
         
         let searchStoryboard = UIStoryboard(name: "Search", bundle: nil)
         let searchViewController = searchStoryboard.instantiateInitialViewController()!
