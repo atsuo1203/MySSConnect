@@ -52,6 +52,11 @@ class RealmStory: Object {
         }
     }
     
+    static func getRealmStory(id: Int) -> RealmStory {
+        let realm = try! Realm()
+        return realm.object(ofType: self, forPrimaryKey: id)!
+    }
+    
     static func getAll() -> [RealmStory] {
         let realm = try! Realm()
         let stories = realm.objects(self)
@@ -60,22 +65,27 @@ class RealmStory: Object {
     
     static func getAllFilterBlogID() -> [RealmStory] {
         let stories = getAll()
-        var result = [RealmStory]()
         let blog_id = RealmBlog.getID(name: "realm")
         stories.forEach { (realmStory) in
             realmStory.blogIDAndUrls.forEach({ (blogIDAndUrl) in
                 let param = blogIDAndUrl.components(separatedBy: ",")
                 let id = param[0]
                 if id == blog_id.description {
-                    realmStory.url = param[1]
+                    updateStoryURL(id: realmStory.story_id, url: param[1])
                 }
             })
-            result.append(realmStory)
         }
-        return result
+        return getAll()
     }
     
     static func addStory(story: Story){
         create(story: story).put()
+    }
+    
+    static func updateStoryURL(id: Int, url: String){
+        let realm = try! Realm()
+        try! realm.write {
+            getRealmStory(id: id).url = url
+        }
     }
 }

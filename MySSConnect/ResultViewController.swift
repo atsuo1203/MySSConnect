@@ -200,7 +200,7 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             print("tapped")
             let story = self.stories[indexPath.row - 1]
             RealmStory.addStory(story: story)
-            print(RealmStory.getAll())
+            print(RealmStory.getAllFilterBlogID())
         }
         
         edit.backgroundColor = UIColor.orange
