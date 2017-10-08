@@ -44,6 +44,7 @@ class SearchAndTableViewController: UIViewController {
         if self.title! == "Favorite" {
             type = .favorite
             self.mainTableView.register(UINib(nibName: "MainCell", bundle: nil), forCellReuseIdentifier: "MainCell")
+            getStories()
         }
     }
 
@@ -56,7 +57,7 @@ class SearchAndTableViewController: UIViewController {
         
     }
     
-    func getTags(){
+    func getTags() {
         API.getTags().responseJSON { (response) in
             guard let object = response.result.value else {
                 return
@@ -72,6 +73,12 @@ class SearchAndTableViewController: UIViewController {
             self.mainTableView.reloadData()
         }
     }
+    
+    func getStories() {
+        self.stories = RealmStory.getAllFilterBlogID()
+        self.storiesResult = self.stories
+        self.mainTableView.reloadData()
+    }
 }
 
 extension SearchAndTableViewController: UITableViewDelegate, UITableViewDataSource {
@@ -85,11 +92,18 @@ extension SearchAndTableViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath) as! TagTableViewCell
-        cell.selectionStyle = .none
-        cell.nameLabel.text = tagsResult[indexPath.row].name
-        cell.countLabel.text = "(" + tagsResult[indexPath.row].taggings_count.description + ")"
-        return cell
+        switch type {
+        case .tag:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath) as! TagTableViewCell
+            cell.selectionStyle = .none
+            cell.nameLabel.text = tagsResult[indexPath.row].name
+            cell.countLabel.text = "(" + tagsResult[indexPath.row].taggings_count.description + ")"
+            return cell
+        case .favorite:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
+            cell.selectionStyle = .none
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
