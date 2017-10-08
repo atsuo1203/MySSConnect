@@ -21,7 +21,7 @@ class MainTabController: UITabBarController {
         
         let homeStoryboard = UIStoryboard(name: "Result", bundle: nil)
         let homeViewController = homeStoryboard.instantiateInitialViewController() as! ResultViewController
-        homeViewController.isHomeViewController = true
+        homeViewController.controllerName = "Home"
         let navigationControllerHome = UINavigationController(rootViewController: homeViewController)
         navigationControllerHome.tabBarItem.title = "Home"
         navigationControllerHome.tabBarItem.image = UIImage(named: "ic_home")
@@ -38,6 +38,14 @@ class MainTabController: UITabBarController {
         searchViewController.title = "Search"
         let navigationControllerSearch = UINavigationController(rootViewController: searchViewController)
         viewControllers.append(navigationControllerSearch)
+        
+        let favoriteStoryboard = UIStoryboard(name: "Result", bundle: nil)
+        let favoriteViewController = favoriteStoryboard.instantiateInitialViewController() as! ResultViewController
+        favoriteViewController.controllerName = "Favorite"
+        let navigationControllerFavorite = UINavigationController(rootViewController: favoriteViewController)
+        navigationControllerFavorite.tabBarItem.title = "お気に入り"
+        navigationControllerFavorite.tabBarItem.image = UIImage(named: "ic_favorite")
+        viewControllers.append(navigationControllerFavorite)
         
         let settingStoryboard = UIStoryboard(name: "Setting", bundle: nil)
         let settingViewController = settingStoryboard.instantiateInitialViewController()!

@@ -15,7 +15,7 @@ class ResultViewController: UIViewController {
     var tag = ""
     var q = ""
     //HomeViewControllerとして使われているかどうか
-    var isHomeViewController = Bool()
+    var controllerName = ""
     //page
     var page = 1
     var lastPage = 1
@@ -38,8 +38,8 @@ class ResultViewController: UIViewController {
         } else {
             self.navigationItem.title = tag + "・" + q
         }
-        if isHomeViewController {
-            self.navigationItem.title = "Home"
+        if controllerName != "" {
+            self.navigationItem.title = controllerName
         }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "page遷移", style: .plain, target: self, action: #selector(self.alert))
         getStories()
