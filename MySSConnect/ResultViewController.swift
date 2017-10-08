@@ -198,4 +198,29 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        // 編集
+//        let edit = UITableViewRowAction(style: .normal, title: "Edit") {
+//            (action, indexPath) in
+//            print("tapped")
+//        }
+//        
+//        edit.backgroundColor = UIColor.green
+//        
+//        // 削除
+//        let del = UITableViewRowAction(style: .default, title: "Delete") {
+//            (action, indexPath) in
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//        del.backgroundColor = UIColor.red
+//        
+//        return [del, edit]
+//    }
+//    
+//    override func setEditing(_ editing: Bool, animated: Bool) {
+//        super.setEditing(editing, animated: animated)
+//        mainTableView.setEditing(editing, animated: animated)
+//    }
+
 }

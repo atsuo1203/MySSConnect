@@ -9,18 +9,39 @@
 import UIKit
 import RealmSwift
 
+class RealmString: Object {
+    // "1,http://hogehoge" みたいな要素を入れる予定
+    dynamic var blogIDAndUrl = ""
+}
+
 class RealmStory: Object {
-    dynamic var id = 0
-    dynamic var story = Story()
+    dynamic var story_id = 0
+    dynamic var url = ""
+    
+    //urlの配列を作るために必要
+    var blogIDAndUrls: [String] {
+        get {
+            return _backingClipKeys.map { $0.blogIDAndUrl }
+        }
+        set {
+            _backingClipKeys.removeAll()
+            _backingClipKeys.append(objectsIn: newValue.map { RealmString(value: [$0]) })}
+    }
+    let _backingClipKeys = List<RealmString>()
+    
+    override static func ignoredProperties() -> [String] {
+        return ["blogIDAndUrls"]
+    }
     
     override class func primaryKey() -> String {
-        return "id"
+        return "story_id"
     }
     
     static func create(story: Story) -> RealmStory {
         let realmStory = RealmStory()
-        realmStory.id = story.id
-        realmStory.story = story
+        realmStory.story_id = story.id
+        realmStory.blogIDAndUrls = story.articles.map { $0.blog.id.description + "," + $0.url }
+        realmStory.url = story.articles[0].url
         return realmStory
     }
     
@@ -34,13 +55,30 @@ class RealmStory: Object {
     static func getAll() -> [RealmStory] {
         let realm = try! Realm()
         let stories = realm.objects(self)
-        return stories.map { $0 }
+        return stories.map{ $0 }
+    }
+    
+    static func getAllFilterBlogID() -> [RealmStory] {
+        let stories = getAll()
+        var result = [RealmStory]()
+        let blog_id = RealmBlog.getID(name: "realm")
+        stories.forEach { (realmStory) in
+            realmStory.blogIDAndUrls.forEach({ (blogIDAndUrl) in
+                let param = blogIDAndUrl.components(separatedBy: ",")
+                let id = param[0]
+                if id == blog_id.description {
+                    realmStory.url = param[1]
+                }
+            })
+            result.append(realmStory)
+        }
+        return result
     }
     
     static func addStory(story: Story){
         let stories = getAll()
         stories.forEach { (realmStory) in
-            if realmStory.id != story.id {
+            if realmStory.story_id != story.id {
                 create(story: story).put()
             }
         }
