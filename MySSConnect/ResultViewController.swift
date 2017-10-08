@@ -172,7 +172,6 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -199,9 +198,7 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             (action, indexPath) in
             print("tapped")
             let story = self.stories[indexPath.row - 1]
-            RealmStory.deleteAll()
             RealmStory.addStory(story: story)
-            print(RealmStory.getAllFilterBlogID())
             tableView.reloadData()
         }
         

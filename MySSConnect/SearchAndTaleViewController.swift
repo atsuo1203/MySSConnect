@@ -54,7 +54,12 @@ class SearchAndTableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        switch type {
+        case .tag:
+            getTags()
+        case .favorite:
+            getStories()
+        }
     }
     
     func getTags() {
@@ -77,6 +82,7 @@ class SearchAndTableViewController: UIViewController {
     func getStories() {
         self.stories = RealmStory.getAllFilterBlogID()
         self.storiesResult = self.stories
+        print(storiesResult)
         self.mainTableView.reloadData()
     }
 }
@@ -100,17 +106,26 @@ extension SearchAndTableViewController: UITableViewDelegate, UITableViewDataSour
             cell.countLabel.text = "(" + tagsResult[indexPath.row].taggings_count.description + ")"
             return cell
         case .favorite:
+            let story = storiesResult[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainTableViewCell
             cell.selectionStyle = .none
+            cell.titleLabel.text = story.title.description
+            cell.dateLabel.text = story.data.description
+            cell.blogLabel.text = story.blog_name.description
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Result", bundle: nil)
-        let nextVC = storyboard.instantiateInitialViewController() as! ResultViewController
-        nextVC.tag = tagsResult[indexPath.row].name
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        switch type {
+        case .tag:
+            let storyboard = UIStoryboard(name: "Result", bundle: nil)
+            let nextVC = storyboard.instantiateInitialViewController() as! ResultViewController
+            nextVC.tag = tagsResult[indexPath.row].name
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        case .favorite:
+            API.showWebView(viewController: self, targetURL: storiesResult[indexPath.row].url)
+        }
     }
 }
 
@@ -118,14 +133,27 @@ extension SearchAndTableViewController: UISearchBarDelegate {
     //searchBarで検索した時の処理
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         mainSearchBar.endEditing(true)
-        tagsResult.removeAll()
-        
-        if(mainSearchBar.text == "") {
-            tagsResult = tags
-        } else {
-            for tag in tags {
-                if tag.name.contains(mainSearchBar.text!) {
-                    tagsResult.append(tag)
+        switch type {
+        case .tag:
+            tagsResult.removeAll()
+            if(mainSearchBar.text == "") {
+                tagsResult = tags
+            } else {
+                for tag in tags {
+                    if tag.name.contains(mainSearchBar.text!) {
+                        tagsResult.append(tag)
+                    }
+                }
+            }
+        case .favorite:
+            storiesResult.removeAll()
+            if(mainSearchBar.text == "") {
+                storiesResult = stories
+            } else {
+                for story in stories {
+                    if story.title.contains(mainSearchBar.text!) {
+                        storiesResult.append(story)
+                    }
                 }
             }
         }
