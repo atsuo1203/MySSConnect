@@ -15,7 +15,7 @@ class ResultViewController: UIViewController {
     var tag = ""
     var q = ""
     //HomeViewControllerとして使われているかどうか
-    var isHomeViewController = Bool()
+    var controllerName = ""
     //page
     var page = 1
     var lastPage = 1
@@ -38,8 +38,8 @@ class ResultViewController: UIViewController {
         } else {
             self.navigationItem.title = tag + "・" + q
         }
-        if isHomeViewController {
-            self.navigationItem.title = "Home"
+        if controllerName != "" {
+            self.navigationItem.title = controllerName
         }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "page遷移", style: .plain, target: self, action: #selector(self.alert))
         getStories()
@@ -158,6 +158,16 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             let blogName = article.blog.title
             cell.blogLabel.text = blogName
             
+//            //お気に入りに追加されているcellだけわかりやすくする
+//            let rStories = RealmStory.getAll()
+//            rStories.forEach({ (rStory) in
+//                if story.id == rStory.story_id {
+//                    cell.blogLabel.textColor = UIColor.green
+//                } else {
+//                    cell.blogLabel.textColor = UIColor.lightGray
+//                }
+//            })
+            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddTableViewCell
@@ -172,7 +182,6 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -182,13 +191,7 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
                 getStories()
             }
         } else if (indexPath.row < stories.count + 1) && (indexPath.row > 0) {
-            //押されたcellを取得
-            let cell = tableView.cellForRow(at: indexPath) as! MainTableViewCell
-            //何番目が押されたかを取得
-            guard let row = self.mainTableView.indexPath(for: cell)?.row else {
-                return
-            }
-            let story = stories[row - 1]
+            let story = stories[indexPath.row - 1]
             let url = registInRealmArticle(story: story).url
             API.showWebView(viewController: self, targetURL: url)
         } else {
@@ -198,4 +201,24 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        //お気に入り追加
+        let edit = UITableViewRowAction(style: .normal, title: "お気に入り") {
+            (action, indexPath) in
+            let story = self.stories[indexPath.row - 1]
+            RealmStory.addStory(story: story)
+            tableView.reloadData()
+        }
+        
+        edit.backgroundColor = UIColor.orange
+        
+        return [edit]
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        mainTableView.setEditing(editing, animated: animated)
+    }
+
 }

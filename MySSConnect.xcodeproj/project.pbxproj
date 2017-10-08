@@ -14,6 +14,7 @@
 		C037336A1F87CDB7000CA080 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03733691F87CDB7000CA080 /* Setting.storyboard */; };
 		C037336C1F87CDD0000CA080 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C037336B1F87CDD0000CA080 /* SettingViewController.swift */; };
 		C037336F1F87E007000CA080 /* RealmBlog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C037336E1F87E007000CA080 /* RealmBlog.swift */; };
+		C037337A1F8A6945000CA080 /* RealmStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03733791F8A6945000CA080 /* RealmStory.swift */; };
 		C05BD34C1F7D624B008361E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05BD34B1F7D624B008361E2 /* AppDelegate.swift */; };
 		C05BD3531F7D624B008361E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C05BD3521F7D624B008361E2 /* Assets.xcassets */; };
 		C05BD3561F7D624B008361E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C05BD3541F7D624B008361E2 /* LaunchScreen.storyboard */; };
@@ -22,8 +23,8 @@
 		C060CDD11F810ABA00FD1C3C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDD01F810ABA00FD1C3C /* API.swift */; };
 		C060CDD31F813D1500FD1C3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDD21F813D1500FD1C3C /* Main.storyboard */; };
 		C060CDD51F813D9300FD1C3C /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDD41F813D9300FD1C3C /* MainTabController.swift */; };
-		C060CDDF1F8142C700FD1C3C /* Tag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDDE1F8142C700FD1C3C /* Tag.storyboard */; };
-		C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE01F8142D600FD1C3C /* TagViewController.swift */; };
+		C060CDDF1F8142C700FD1C3C /* SearchAndTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDDE1F8142C700FD1C3C /* SearchAndTable.storyboard */; };
+		C060CDE11F8142D600FD1C3C /* SearchAndTaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE01F8142D600FD1C3C /* SearchAndTaleViewController.swift */; };
 		C060CDE31F8143B400FD1C3C /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDE21F8143B400FD1C3C /* Search.storyboard */; };
 		C060CDE51F81441300FD1C3C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE41F81441300FD1C3C /* SearchViewController.swift */; };
 		C060CDE81F82083400FD1C3C /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDE71F82083400FD1C3C /* Result.storyboard */; };
@@ -69,6 +70,7 @@
 		C03733691F87CDB7000CA080 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		C037336B1F87CDD0000CA080 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C037336E1F87E007000CA080 /* RealmBlog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmBlog.swift; sourceTree = "<group>"; };
+		C03733791F8A6945000CA080 /* RealmStory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmStory.swift; sourceTree = "<group>"; };
 		C05BD3481F7D624B008361E2 /* MySSConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySSConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05BD34B1F7D624B008361E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C05BD3521F7D624B008361E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,8 +85,8 @@
 		C060CDD01F810ABA00FD1C3C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C060CDD21F813D1500FD1C3C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C060CDD41F813D9300FD1C3C /* MainTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
-		C060CDDE1F8142C700FD1C3C /* Tag.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tag.storyboard; sourceTree = "<group>"; };
-		C060CDE01F8142D600FD1C3C /* TagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
+		C060CDDE1F8142C700FD1C3C /* SearchAndTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchAndTable.storyboard; sourceTree = "<group>"; };
+		C060CDE01F8142D600FD1C3C /* SearchAndTaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAndTaleViewController.swift; sourceTree = "<group>"; };
 		C060CDE21F8143B400FD1C3C /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		C060CDE41F81441300FD1C3C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C060CDE71F82083400FD1C3C /* Result.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
@@ -165,8 +167,22 @@
 			isa = PBXGroup;
 			children = (
 				C037336E1F87E007000CA080 /* RealmBlog.swift */,
+				C03733791F8A6945000CA080 /* RealmStory.swift */,
 			);
 			name = Realm;
+			sourceTree = "<group>";
+		};
+		C037337F1F8A7CFB000CA080 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				C060CDED1F821C0C00FD1C3C /* MainCell.xib */,
+				C060CDEF1F821E4600FD1C3C /* MainTableViewCell.swift */,
+				C0ABF9081F85D10100A3B8E1 /* AddCell.xib */,
+				C0ABF90A1F85D13D00A3B8E1 /* AddTableViewCell.swift */,
+				C0C73C4E1F86815B00584255 /* TagCell.xib */,
+				C0C73C501F868D0300584255 /* TagTableViewCell.swift */,
+			);
+			name = XIB;
 			sourceTree = "<group>";
 		};
 		C05BD33F1F7D624B008361E2 = {
@@ -195,9 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				C060CDD61F813DED00FD1C3C /* Main */,
-				C060CDDD1F8141CB00FD1C3C /* Tag */,
 				C060CDDC1F8141B300FD1C3C /* Search */,
-				C060CDE61F82081E00FD1C3C /* Result */,
 				C03733681F87CD8C000CA080 /* Setting */,
 				C060CDEC1F821BCE00FD1C3C /* Common */,
 				C060CDF11F828A6100FD1C3C /* Model */,
@@ -245,13 +259,13 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
-		C060CDDD1F8141CB00FD1C3C /* Tag */ = {
+		C060CDDD1F8141CB00FD1C3C /* SearchAndTabble */ = {
 			isa = PBXGroup;
 			children = (
-				C060CDDE1F8142C700FD1C3C /* Tag.storyboard */,
-				C060CDE01F8142D600FD1C3C /* TagViewController.swift */,
+				C060CDDE1F8142C700FD1C3C /* SearchAndTable.storyboard */,
+				C060CDE01F8142D600FD1C3C /* SearchAndTaleViewController.swift */,
 			);
-			name = Tag;
+			name = SearchAndTabble;
 			sourceTree = "<group>";
 		};
 		C060CDE61F82081E00FD1C3C /* Result */ = {
@@ -266,13 +280,10 @@
 		C060CDEC1F821BCE00FD1C3C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C060CDED1F821C0C00FD1C3C /* MainCell.xib */,
-				C060CDEF1F821E4600FD1C3C /* MainTableViewCell.swift */,
-				C0ABF9081F85D10100A3B8E1 /* AddCell.xib */,
-				C0ABF90A1F85D13D00A3B8E1 /* AddTableViewCell.swift */,
-				C0C73C4E1F86815B00584255 /* TagCell.xib */,
-				C0C73C501F868D0300584255 /* TagTableViewCell.swift */,
 				C060CDD01F810ABA00FD1C3C /* API.swift */,
+				C060CDE61F82081E00FD1C3C /* Result */,
+				C060CDDD1F8141CB00FD1C3C /* SearchAndTabble */,
+				C037337F1F8A7CFB000CA080 /* XIB */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -416,7 +427,7 @@
 				C05BD3531F7D624B008361E2 /* Assets.xcassets in Resources */,
 				C0C73C4F1F86815B00584255 /* TagCell.xib in Resources */,
 				C037336A1F87CDB7000CA080 /* Setting.storyboard in Resources */,
-				C060CDDF1F8142C700FD1C3C /* Tag.storyboard in Resources */,
+				C060CDDF1F8142C700FD1C3C /* SearchAndTable.storyboard in Resources */,
 				C060CDE31F8143B400FD1C3C /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,11 +617,12 @@
 				C060CDF51F828B7500FD1C3C /* Article.swift in Sources */,
 				C037336C1F87CDD0000CA080 /* SettingViewController.swift in Sources */,
 				C060CDD11F810ABA00FD1C3C /* API.swift in Sources */,
-				C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */,
+				C060CDE11F8142D600FD1C3C /* SearchAndTaleViewController.swift in Sources */,
 				C060CDD51F813D9300FD1C3C /* MainTabController.swift in Sources */,
 				C0ABF90B1F85D13D00A3B8E1 /* AddTableViewCell.swift in Sources */,
 				C0C73C511F868D0300584255 /* TagTableViewCell.swift in Sources */,
 				C060CDF71F828B8000FD1C3C /* Blog.swift in Sources */,
+				C037337A1F8A6945000CA080 /* RealmStory.swift in Sources */,
 				C060CDF31F828AA500FD1C3C /* Story.swift in Sources */,
 				C01B90801F85E470007A84C8 /* Tag.swift in Sources */,
 			);

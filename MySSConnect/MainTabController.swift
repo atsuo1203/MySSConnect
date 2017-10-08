@@ -21,16 +21,18 @@ class MainTabController: UITabBarController {
         
         let homeStoryboard = UIStoryboard(name: "Result", bundle: nil)
         let homeViewController = homeStoryboard.instantiateInitialViewController() as! ResultViewController
-        homeViewController.isHomeViewController = true
+        homeViewController.controllerName = "Home"
         let navigationControllerHome = UINavigationController(rootViewController: homeViewController)
-        navigationControllerHome.tabBarItem.title = "Home"
+        navigationControllerHome.tabBarItem.title = "home"
         navigationControllerHome.tabBarItem.image = UIImage(named: "ic_home")
         viewControllers.append(navigationControllerHome)
         
-        let tagStoryboard = UIStoryboard(name: "Tag", bundle: nil)
-        let tagViewController = tagStoryboard.instantiateInitialViewController()!
+        let tagStoryboard = UIStoryboard(name: "SearchAndTable", bundle: nil)
+        let tagViewController = tagStoryboard.instantiateInitialViewController()! as! SearchAndTableViewController
         tagViewController.title = "Tag"
         let navigationControllerTag = UINavigationController(rootViewController: tagViewController)
+        navigationControllerTag.tabBarItem.title = "tag"
+        navigationControllerTag.tabBarItem.image = UIImage(named: "ic_label_outline")
         viewControllers.append(navigationControllerTag)
         
         let searchStoryboard = UIStoryboard(name: "Search", bundle: nil)
@@ -38,6 +40,14 @@ class MainTabController: UITabBarController {
         searchViewController.title = "Search"
         let navigationControllerSearch = UINavigationController(rootViewController: searchViewController)
         viewControllers.append(navigationControllerSearch)
+        
+        let favoriteStoryboard = UIStoryboard(name: "SearchAndTable", bundle: nil)
+        let favoriteViewController = favoriteStoryboard.instantiateInitialViewController() as! SearchAndTableViewController
+        let navigationControllerFavorite = UINavigationController(rootViewController: favoriteViewController)
+        favoriteViewController.title = "Favorite"
+        navigationControllerFavorite.tabBarItem.title = "favorite"
+        navigationControllerFavorite.tabBarItem.image = UIImage(named: "ic_favorite")
+        viewControllers.append(navigationControllerFavorite)
         
         let settingStoryboard = UIStoryboard(name: "Setting", bundle: nil)
         let settingViewController = settingStoryboard.instantiateInitialViewController()!
