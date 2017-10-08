@@ -22,8 +22,8 @@
 		C060CDD11F810ABA00FD1C3C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDD01F810ABA00FD1C3C /* API.swift */; };
 		C060CDD31F813D1500FD1C3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDD21F813D1500FD1C3C /* Main.storyboard */; };
 		C060CDD51F813D9300FD1C3C /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDD41F813D9300FD1C3C /* MainTabController.swift */; };
-		C060CDDF1F8142C700FD1C3C /* Tag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDDE1F8142C700FD1C3C /* Tag.storyboard */; };
-		C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE01F8142D600FD1C3C /* TagViewController.swift */; };
+		C060CDDF1F8142C700FD1C3C /* SearchAndTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDDE1F8142C700FD1C3C /* SearchAndTable.storyboard */; };
+		C060CDE11F8142D600FD1C3C /* SearchAndTaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE01F8142D600FD1C3C /* SearchAndTaleViewController.swift */; };
 		C060CDE31F8143B400FD1C3C /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDE21F8143B400FD1C3C /* Search.storyboard */; };
 		C060CDE51F81441300FD1C3C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060CDE41F81441300FD1C3C /* SearchViewController.swift */; };
 		C060CDE81F82083400FD1C3C /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C060CDE71F82083400FD1C3C /* Result.storyboard */; };
@@ -83,8 +83,8 @@
 		C060CDD01F810ABA00FD1C3C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C060CDD21F813D1500FD1C3C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C060CDD41F813D9300FD1C3C /* MainTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
-		C060CDDE1F8142C700FD1C3C /* Tag.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tag.storyboard; sourceTree = "<group>"; };
-		C060CDE01F8142D600FD1C3C /* TagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
+		C060CDDE1F8142C700FD1C3C /* SearchAndTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchAndTable.storyboard; sourceTree = "<group>"; };
+		C060CDE01F8142D600FD1C3C /* SearchAndTaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAndTaleViewController.swift; sourceTree = "<group>"; };
 		C060CDE21F8143B400FD1C3C /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		C060CDE41F81441300FD1C3C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C060CDE71F82083400FD1C3C /* Result.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				C060CDD61F813DED00FD1C3C /* Main */,
-				C060CDDD1F8141CB00FD1C3C /* Tag */,
+				C060CDDD1F8141CB00FD1C3C /* SearchAndTabble */,
 				C060CDDC1F8141B300FD1C3C /* Search */,
 				C03733681F87CD8C000CA080 /* Setting */,
 				C060CDEC1F821BCE00FD1C3C /* Common */,
@@ -243,13 +243,13 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
-		C060CDDD1F8141CB00FD1C3C /* Tag */ = {
+		C060CDDD1F8141CB00FD1C3C /* SearchAndTabble */ = {
 			isa = PBXGroup;
 			children = (
-				C060CDDE1F8142C700FD1C3C /* Tag.storyboard */,
-				C060CDE01F8142D600FD1C3C /* TagViewController.swift */,
+				C060CDDE1F8142C700FD1C3C /* SearchAndTable.storyboard */,
+				C060CDE01F8142D600FD1C3C /* SearchAndTaleViewController.swift */,
 			);
-			name = Tag;
+			name = SearchAndTabble;
 			sourceTree = "<group>";
 		};
 		C060CDE61F82081E00FD1C3C /* Result */ = {
@@ -416,7 +416,7 @@
 				C05BD3531F7D624B008361E2 /* Assets.xcassets in Resources */,
 				C0C73C4F1F86815B00584255 /* TagCell.xib in Resources */,
 				C037336A1F87CDB7000CA080 /* Setting.storyboard in Resources */,
-				C060CDDF1F8142C700FD1C3C /* Tag.storyboard in Resources */,
+				C060CDDF1F8142C700FD1C3C /* SearchAndTable.storyboard in Resources */,
 				C060CDE31F8143B400FD1C3C /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,7 +606,7 @@
 				C060CDF51F828B7500FD1C3C /* Article.swift in Sources */,
 				C037336C1F87CDD0000CA080 /* SettingViewController.swift in Sources */,
 				C060CDD11F810ABA00FD1C3C /* API.swift in Sources */,
-				C060CDE11F8142D600FD1C3C /* TagViewController.swift in Sources */,
+				C060CDE11F8142D600FD1C3C /* SearchAndTaleViewController.swift in Sources */,
 				C060CDD51F813D9300FD1C3C /* MainTabController.swift in Sources */,
 				C0ABF90B1F85D13D00A3B8E1 /* AddTableViewCell.swift in Sources */,
 				C0C73C511F868D0300584255 /* TagTableViewCell.swift in Sources */,

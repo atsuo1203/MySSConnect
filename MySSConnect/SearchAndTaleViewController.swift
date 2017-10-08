@@ -9,8 +9,8 @@
 import UIKit
 import SwiftyJSON
 
-class TagViewController: UIViewController {
-    @IBOutlet weak var tagSearchBar: UISearchBar!
+class SearchAndTableViewController: UIViewController {
+    @IBOutlet weak var mainSearchBar: UISearchBar!
     @IBOutlet weak var mainTableView: UITableView!
     var tags = [Tag]()
     var searchResult = [Tag]()
@@ -22,8 +22,8 @@ class TagViewController: UIViewController {
         self.mainTableView.dataSource = self
         self.mainTableView.register(UINib(nibName: "TagCell", bundle: nil), forCellReuseIdentifier: "TagCell")
         //searchBar
-        self.tagSearchBar.delegate = self
-        self.tagSearchBar.enablesReturnKeyAutomatically = false
+        self.mainSearchBar.delegate = self
+        self.mainSearchBar.enablesReturnKeyAutomatically = false
         //tag取得
         getTags()
     }
@@ -50,7 +50,7 @@ class TagViewController: UIViewController {
     }
 }
 
-extension TagViewController: UITableViewDelegate, UITableViewDataSource {
+extension SearchAndTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResult.count
     }
@@ -71,17 +71,17 @@ extension TagViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension TagViewController: UISearchBarDelegate {
+extension SearchAndTableViewController: UISearchBarDelegate {
     //searchBarで検索した時の処理
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        tagSearchBar.endEditing(true)
+        mainSearchBar.endEditing(true)
         searchResult.removeAll()
         
-        if(tagSearchBar.text == "") {
+        if(mainSearchBar.text == "") {
             searchResult = tags
         } else {
             for tag in tags {
-                if tag.name.contains(tagSearchBar.text!) {
+                if tag.name.contains(mainSearchBar.text!) {
                     searchResult.append(tag)
                 }
             }
