@@ -158,6 +158,16 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
             let blogName = article.blog.title
             cell.blogLabel.text = blogName
             
+//            //お気に入りに追加されているcellだけわかりやすくする
+//            let rStories = RealmStory.getAll()
+//            rStories.forEach({ (rStory) in
+//                if story.id == rStory.story_id {
+//                    cell.blogLabel.textColor = UIColor.green
+//                } else {
+//                    cell.blogLabel.textColor = UIColor.lightGray
+//                }
+//            })
+            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! AddTableViewCell
